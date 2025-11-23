@@ -1,0 +1,84 @@
+.welcome .nav-bar {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        padding-inline: 10vh;
+}
+
+.welcome .nav-bar .logo {
+        justify-self: start;
+        display: grid;
+        place-content:  center start;
+}
+
+.welcome .nav-bar .logo img {
+        height: 7.5vh;
+}
+
+.welcome .nav-bar nav {
+        justify-self: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4vh;
+}
+
+.welcome .nav-bar nav .nav-link {
+        display: grid;
+        place-content: center;
+        font-family: var(--primary-font-family);
+        font-size: var(--primary-font-size);
+        font-weight: var(--primary-font-weight);
+        color: var(--primary-font-color-light-mode);
+        text-decoration: none;
+        border-radius: var(--primary-border-radius);
+        padding: 0.5vh 2vh;
+        transition: background-color 0.15s linear;
+        cursor: pointer;
+}
+
+.welcome .nav-bar nav .nav-link:focus,
+.welcome .nav-bar nav .nav-link:hover {
+        background-color: var(--primary-hover-color-light-mode);
+}
+
+.welcome .nav-bar nav .nav-link.active {
+        color: var(--system-font-color);
+}
+
+.welcome .nav-bar .sign {
+        justify-self: end;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        gap: 1vh;
+}
+
+.welcome .nav-bar .sign p {
+        display: grid;
+        place-content: center;
+        font-size: var(--primary-font-size);
+        font-weight: var(--primary-font-weight);
+        color: var(--primary-font-color-light-mode);
+        border-radius: var(--primary-border-radius);
+        padding: 1.25vh 3.5vh;
+        transition: background-color 0.15s  linear, opacity 0.15s linear;
+        cursor: pointer;
+}
+
+.welcome .nav-bar .sign .sign-up {
+        color: var(--primary-font-color-dark-mode);
+        background-color: var(--system-background-color);
+        opacity: 0.9;
+}
+
+.welcome .nav-bar .sign p:focus,
+.welcome .nav-bar .sign p:hover {
+        background-color: var(--primary-hover-color-light-mode);
+}
+
+.welcome .nav-bar .sign .sign-up:focus,
+.welcome .nav-bar .sign .sign-up:hover {
+        background-color: var(--system-background-color);
+        opacity: 1;
+}

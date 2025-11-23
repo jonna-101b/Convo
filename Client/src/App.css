@@ -1,42 +1,41 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+:root {
+        --primary-background-color-light-mode: #F5F5F5;
+        --tertiary-background-color-light-mode:  #888888;
+        --primary-background-color-dark-mode: #0B0D0E;
+        --system-background-color: #942678;
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
+        --primary-hover-color-light-mode: #E1E1E1;
 
-.card {
-  padding: 2em;
-}
 
-.read-the-docs {
-  color: #888;
+        --primary-border-radius: 2vh;
+
+        
+        --primary-font-color-light-mode: #0B0D0E;
+        --secondary-font-color-light-mode: #888888;
+        --primary-font-color-dark-mode: #F5F5F5;
+        --secondary-font-color-dark-mode: #888888;
+        --system-font-color: #942678;
+
+
+        --primary-font-family: Poppins, Arial, Helvetica, sans-serif;
+
+
+        --primary-font-size: 15px;
+        --tertiary-font-size: 13px;
+        --secondary-font-size: 17px;
+        --quaternary-font-size: 20px;
+        --system-max-font-size: 48px;
+        --system-min-font-size: 10px;
+
+
+        --primary-font-weight: 600;
+        --secondary-font-weight: 700;
+        --tertiary-font-weight: bold;
 }
