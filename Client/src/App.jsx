@@ -1,7 +1,11 @@
+import Welcome from "./Pages/Welcome/Welcome";
+
+
 function  App() {
-        return (
-              <div className="hello">Hello</div>
-        );
+      return (
+                  <Welcome />
+
+      );
 }
 
 export default App;
