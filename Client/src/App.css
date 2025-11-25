@@ -6,7 +6,9 @@
 
 :root {
         --primary-background-color-light-mode: #F5F5F5;
-        --tertiary-background-color-light-mode:  #888888;
+        --secondary-background-color-light-mode: #D5D5D5;
+        --tertiary-background-color-light-mode: #C3C3C3;
+        --quaternary-background-color-light-mode:  #888888;
         --primary-background-color-dark-mode: #0B0D0E;
         --system-background-color: #942678;
 
@@ -19,6 +21,7 @@
         
         --primary-font-color-light-mode: #0B0D0E;
         --secondary-font-color-light-mode: #888888;
+        --tertiary-font-color-light-mode: #F5F5F5;
         --primary-font-color-dark-mode: #F5F5F5;
         --secondary-font-color-dark-mode: #888888;
         --system-font-color: #942678;
@@ -28,8 +31,8 @@
 
 
         --primary-font-size: 15px;
-        --tertiary-font-size: 13px;
         --secondary-font-size: 17px;
+        --tertiary-font-size: 13px;
         --quaternary-font-size: 20px;
         --system-max-font-size: 48px;
         --system-min-font-size: 10px;
