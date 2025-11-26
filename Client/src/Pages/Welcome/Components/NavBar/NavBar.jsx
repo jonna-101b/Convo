@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import ConvoLogo from '../../../../assets/Images/Welcome/Convo-logo-black.png';
+import ConvoLogo from '../../../../assets/Images/Welcome/Convo-logo-light.png';
 import './NavBar.css';
 
 

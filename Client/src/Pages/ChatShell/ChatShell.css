@@ -1,0 +1,5 @@
+.chat-shell {
+        display: grid;
+        font-family: var(--primary-font-family);
+        background-color: var(--primary-background-color-light-mode);
+}

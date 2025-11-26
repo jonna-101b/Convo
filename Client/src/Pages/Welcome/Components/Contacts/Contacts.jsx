@@ -18,7 +18,7 @@ function Contacts() {
 
                                 <div className="headline-link">
                                         <p className="headline">
-                                                Meet the Team!
+                                                Let's keep in touch.
                                         </p>
 
                                         <div className="links">
@@ -33,7 +33,7 @@ function Contacts() {
 
                         <div className="form-links">
                                 <form action="">
-                                        <p className="text">
+                                        <p className="punchline">
                                                 Do you have something to say? Reach out.
                                         </p>
 

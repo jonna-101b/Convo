@@ -40,6 +40,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: 4vh;
         font-size:  var(--primary-font-size);
         font-weight: var(--primary-font-weight);
         color: var(--primary-font-color-light-mode);
@@ -49,12 +50,19 @@
         display: grid;
         place-content: center;
         border-radius: 50%;
-        width: 10vh;
-        height: 10vh;
+        width: 6vh;
+        height: 6vh;
+        transition: background-color 0.15s linear;
+        cursor: pointer;
+}
+
+.welcome .contacts .image-headlines .headline-link .links p:focus,
+.welcome .contacts .image-headlines .headline-link .links p:hover {
+        background-color: var(--primary-hover-color-light-mode);
 }
 
 .welcome .contacts .image-headlines .headline-link .links p img {
-        width: 5vh;
+        width: 3.75vh;
 }
 
 .welcome .contacts .form-links {
@@ -74,13 +82,16 @@
         color: var(--secondary-font-color-light-mode);
         background-color: var(--secondary-background-color-light-mode);
         border-radius: var(--primary-border-radius);
-        padding-inline: 2.5vh;
+        overflow: hidden;
 }
 
-.welcome .contacts .form-links form .text {
+.welcome .contacts .form-links form .punchline {
         grid-column: span 2;
+        font-size: var(--primary-font-size);
+        color: var(--secondary-font-color-light-mode);
         background-color: transparent;
         border-radius: 0;
+        box-shadow: none;
         padding: 0;
 }
 
@@ -90,9 +101,11 @@
         color: var(--secondary-font-color-light-mode);
         background-color: var(--secondary-background-color-light-mode);
         border: none;
+        box-shadow: inset 0 0 1.5vh var(--tertiary-background-color-light-mode);
         outline: none;
         width: 100%;
-        padding-block: 1.5vh;
+        height: 100%;
+        padding: 1.75vh 2.5vh;
 }
 
 .welcome .contacts .form-links form .subject {
@@ -102,7 +115,6 @@
 .welcome .contacts .form-links form .message {
         grid-column: span 2;
         height: 30vh;
-        padding: 2vh 2.5vh;
 }
 
 .welcome .contacts .form-links form p textarea {
@@ -111,9 +123,11 @@
         color: var(--secondary-font-color-light-mode);
         background-color: var(--secondary-background-color-light-mode);
         border: none;
+        box-shadow: inset 0 0 1.5vh var(--tertiary-background-color-light-mode);
         outline: none;
         width: 100%;
         height: 100%;
+        padding: 2vh 2.5vh;
         resize: none;
 }
 
@@ -128,5 +142,11 @@
         border-radius: var(--primary-border-radius);
         outline: none;
         padding-block: 2vh;
-        opacity: 0.85;
+        opacity: 0.9;
+        transition: opacity 0.15s linear;
+}
+
+.welcome .contacts .form-links form button:focus,
+.welcome .contacts .form-links form button:hover {
+        opacity: 1;
 }

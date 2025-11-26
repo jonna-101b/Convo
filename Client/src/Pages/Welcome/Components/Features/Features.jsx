@@ -51,6 +51,10 @@ function Features() {
         return (
                 <div className="features">
                         <div className="descriptions">
+                                <p className="punchline">
+                                        Why choose clarity?
+                                </p>
+
                                 { features.map((feature, index) => (
                                         <Feature key={index} feature={feature} />
                                 )) }

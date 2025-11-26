@@ -1,0 +1,5 @@
+.chat-shell .side-panel {
+        display: grid;
+        width: 25vw;
+        padding: 2.5vh;
+}

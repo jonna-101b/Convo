@@ -51,7 +51,17 @@
 .welcome .features .descriptions {
         display: grid;
         place-content: center;
-        gap: 8vh;
+        gap: 6vh;
+        padding-top: 6vh;
+        position: relative;
+}
+
+.welcome .features .descriptions .punchline {
+        display: grid;
+        place-content: center start;
+        font-size: var(--primary-font-size);
+        color: var(--secondary-font-color-light-mode);
+        position: absolute;
 }
 
 .welcome .features .descriptions .feature {
