@@ -137,7 +137,7 @@
         font-size: var(--primary-font-size);
         font-weight: var(--primary-font-weight);
         color: var(--tertiary-font-color-light-mode);
-        background-color: var(--system-background-color);
+        background-color: var(--system-accent-color);
         border: none;
         border-radius: var(--primary-border-radius);
         outline: none;

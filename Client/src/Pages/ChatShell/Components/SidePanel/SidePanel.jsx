@@ -14,7 +14,7 @@ function SidePanel() {
 
                         <ChatList />
 
-                        <ChatSuggestions />
+                        {/* <ChatSuggestions /> */}
 
                         <PanelFooter />
                 </div>

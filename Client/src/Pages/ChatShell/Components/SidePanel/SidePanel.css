@@ -1,5 +1,12 @@
 .chat-shell .side-panel {
         display: grid;
+        /* gap: 4vh; */
+        border-right: 1px solid #d5d5d5;
         width: 25vw;
-        padding: 2.5vh;
+        height: 100vh;
+        padding-block: 2.5vh 1.5vh;
+}
+
+.chat-shell .side-panel img {
+        width: 2vh;
 }

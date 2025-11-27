@@ -1,0 +1,47 @@
+.chat-shell .side-panel .chat-tabs {
+        place-self: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1vh;
+        background-color: var(--secondary-background-color-light-mode);
+        border-radius: 20vh;
+        width: fit-content;
+        margin-top: 4vh;
+        padding: 0.75vh;
+}
+
+.chat-shell .side-panel .chat-tabs .tab {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.75vh;
+        font-size: var(--tertiary-font-size);
+        color: var(--secondary-font-color-light-mode);
+        border-radius: 20vh;
+        padding: 0.5vh 2vh;
+        transition: background-color 0.15s linear;
+        cursor: pointer;
+}
+
+.chat-shell .side-panel .chat-tabs .tab:first-child {
+        color: var(--primary-font-color-light-mode);
+        background-color: var(--primary-background-color-light-mode);
+}
+
+.chat-shell .side-panel .chat-tabs .tab:focus,
+.chat-shell .side-panel .chat-tabs .tab:hover {
+        background-color: var(--primary-hover-color-light-mode);
+}
+
+.chat-shell .side-panel .chat-tabs .tab .unread {
+        display: grid;
+        place-content: center;
+        font-size: var(--system-min-font-size);
+        color: var(--tertiary-font-color-light-mode);
+        background-color: var(--system-accent-color);
+        border-radius: 50%;
+        width: 2.5vh;
+        height: 2.5vh;
+        aspect-ratio: 1;
+}

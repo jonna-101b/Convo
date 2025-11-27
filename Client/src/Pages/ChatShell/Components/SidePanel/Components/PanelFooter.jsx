@@ -6,10 +6,12 @@ function PanelFooter() {
         return (
                 <div className="panel-footer">
                         <div className="mini-profile">
-                                <p className="image"></p>
+                                <p className="image">
+                                        <img src="www.siusclhscjcks.com" />
+                                </p>
 
                                 <div className="details">
-                                        <p className="name">
+                                        <p className="username">
                                                 Jonna
                                         </p>
 

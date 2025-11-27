@@ -1,5 +1,7 @@
 import ConvoLogoLight from '../../../../../assets/Images/ChatShell/SidePanel/Convo-logo-light.png';
 import ConvoLogoDark from '../../../../../assets/Images/ChatShell/SidePanel/Convo-logo-dark.png';
+import ActivityLightIcon from '../../../../../assets/Icons/ChatShell/SidePanel/activity-light.png';
+import ActivityDarkIcon from '../../../../../assets/Icons/ChatShell/SidePanel/activity-dark.png';
 import SearchLightIcon from '../../../../../assets/Icons/ChatShell/SidePanel/search-light.png';
 import SearchDarkIcon from '../../../../../assets/Icons/ChatShell/SidePanel/search-dark.png';
 import SettingsLightIcon from '../../../../../assets/Icons/ChatShell/SidePanel/settings-light.png';
@@ -14,6 +16,10 @@ function PanelHeader() {
                         </p>
 
                         <div className="tools">
+                                <p className="acitivity">
+                                        <img src={ActivityLightIcon} alt="Search light icon" />
+                                </p>
+
                                 <p className="search">
                                         <img src={SearchLightIcon} alt="Search light icon" />
                                 </p>

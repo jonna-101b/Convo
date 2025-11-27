@@ -10,10 +10,12 @@
         --tertiary-background-color-light-mode: #C3C3C3;
         --quaternary-background-color-light-mode:  #888888;
         --primary-background-color-dark-mode: #0B0D0E;
-        --system-background-color: #942678;
+        --system-accent-color: #942678;
+        --system-accent-dimmed-color: rgba(145, 38, 118, 0.2);
 
 
         --primary-hover-color-light-mode: #E1E1E1;
+        --tertiary-hover-color-light-mode: rgba(255, 68, 0, 0.2);
 
 
         --primary-border-radius: 2vh;
@@ -30,10 +32,10 @@
         --primary-font-family: Poppins, Arial, Helvetica, sans-serif;
 
 
-        --primary-font-size: 15px;
-        --secondary-font-size: 17px;
-        --tertiary-font-size: 13px;
-        --quaternary-font-size: 20px;
+        --primary-font-size: 14px;
+        --secondary-font-size: 16px;
+        --tertiary-font-size: 12px;
+        --quaternary-font-size: 18px;
         --system-max-font-size: 48px;
         --system-min-font-size: 10px;
 

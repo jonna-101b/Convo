@@ -68,7 +68,7 @@
 
 .welcome .nav-bar .sign .sign-up {
         color: var(--primary-font-color-dark-mode);
-        background-color: var(--system-background-color);
+        background-color: var(--system-accent-color);
         opacity: 0.9;
 }
 

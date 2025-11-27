@@ -1,0 +1,129 @@
+.chat-shell .side-panel .chat-list {
+        display: grid;
+        width: 100%;
+        overflow-y: auto;
+        background: linear-gradient(
+                to bottom, 
+                var(--primary-hover-color-light-mode) 0%,
+                var(--primary-hover-color-light-mode) 1%,
+                transparent 8%, 
+                transparent 92%, 
+                var(--primary-hover-color-light-mode) 99%,
+                var(--primary-hover-color-light-mode) 100%
+        );
+        margin-block: 4vh 1.5vh;
+}
+
+.chat-shell .side-panel .chat-list::-webkit-scrollbar {
+        width: 7px;
+}
+
+.chat-shell .side-panel .chat-list::-webkit-scrollbar-thumb {
+        background: var(--secondary-background-color-light-mode);
+}
+
+.chat-shell .side-panel .chat-list::-webkit-scrollbar-thumb:hover {
+        background: var(--tertiary-background-color-light-mode);
+}
+
+.chat-shell .side-panel .chat-list .chat {
+        display: flex;
+        gap: 2vh;
+        padding: 2vh 3vh;
+        padding-right: 3.5vh;
+        transition: background-color 0.15s linear;
+        cursor: pointer;
+        position: relative;
+}
+
+.chat-shell .side-panel .chat-list .chat:first-child {
+        background-color: var(--system-accent-dimmed-color);
+}
+
+.chat-shell .side-panel .chat-list .chat:first-child:before {
+        content: "";
+        display: grid;
+        background-color: var(--system-accent-color);
+        width: 5px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+}
+
+.chat-shell .side-panel .chat-list .chat:focus,
+.chat-shell .side-panel .chat-list .chat:hover {
+        background-color: var(--primary-hover-color-light-mode);
+}
+
+.chat-shell .side-panel .chat-list .chat:first-child,
+.chat-shell .side-panel .chat-list .chat:first-child {
+        background-color: var(--system-accent-dimmed-color);
+}
+
+.chat-shell .side-panel .chat-list .chat .profile-pic {
+        place-self: center;
+        display: grid;
+        place-content: center;
+        background-color: var(--tertiary-background-color-light-mode);
+        border-radius: 50%;
+        width: fit-content;
+        height: fit-content;
+}
+
+.chat-shell .side-panel .chat-list .chat .profile-pic img {
+        width: 7vh;
+        height: 7vh;
+        border-radius: 50%;
+        aspect-ratio: 1;
+}
+
+.chat-shell .side-panel .chat-list .chat .chat-content {
+        flex-grow: 1;
+        display: grid;
+        gap: 1vh;
+}
+
+.chat-shell .side-panel .chat-list .chat .name-time {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+}
+
+.chat-shell .side-panel .chat-list .chat .name-time .username {
+        font-size: var(--secondary-font-size);
+        font-weight: var(--primary-font-weight);
+        color: var(--primary-font-color-light-mode);
+}
+
+.chat-shell .side-panel .chat-list .chat .name-time .time {
+        font-size: var(--primary-font-size);
+        color: var(--secondary-font-color-light-mode);
+}
+
+.chat-shell .side-panel .chat-list .chat .message-unread {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 1vh;
+        width: 100%;
+        font-size: var(--primary-font-size);
+        color: var(--secondary-font-color-light-mode);
+}
+
+.chat-shell .side-panel .chat-list .chat .message-unread .message {
+        font-size: var(--primary-font-size);
+        color: var(--secondary-font-color-light-mode);
+}
+
+.chat-shell .side-panel .chat-list .chat .message-unread .unread {
+        display: grid;
+        place-content: center;
+        font-size: var(--tertiary-font-size);
+        color: var(--tertiary-font-color-light-mode);
+        background-color: var(--system-accent-color);
+        border-radius: 50%;
+        width: 3vh;
+        height: 3vh;
+        aspect-ratio: 1;
+}
