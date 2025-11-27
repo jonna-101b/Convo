@@ -1,0 +1,6 @@
+.chat-shell .chat-window .chat-body {
+        flex-grow: 1;
+        display: grid;
+        background-color: var(--secondary-background-color-light-mode);
+        height: 100%;
+}

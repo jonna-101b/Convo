@@ -114,6 +114,10 @@
 .chat-shell .side-panel .chat-list .chat .message-unread .message {
         font-size: var(--primary-font-size);
         color: var(--secondary-font-color-light-mode);
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 100%;  
+        overflow: hidden;      
 }
 
 .chat-shell .side-panel .chat-list .chat .message-unread .unread {
