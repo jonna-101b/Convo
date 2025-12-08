@@ -1,3 +1,5 @@
+import UseSelectHook from '../../../Hooks/UseSelectHook';
+import useInfoDisplayHook from '../../../Hooks/UseInfoDisplayHook';
 import SearchLightIcon from '../../../../../assets/Icons/ChatShell/ChatWindow/search-light.png';
 import SearchDarkIcon from '../../../../../assets/Icons/ChatShell/ChatWindow/search-dark.png';
 import MenuLightIcon from '../../../../../assets/Icons/ChatShell/ChatWindow/menu-light.png';
@@ -5,9 +7,22 @@ import MenuDarkIcon from '../../../../../assets/Icons/ChatShell/ChatWindow/menu-
 import '../Styles/ChatHeader.css';
 
 
+const isEmpty = (obj) => {
+        return Object.entries(obj).length === 0;
+};
+
 function ChatHeader() {
+        const { selected } = UseSelectHook();
+        const { setDisplay } = useInfoDisplayHook();
+        const username = isEmpty(selected) ? null : selected.username;
+        const status = "Online";
+
+        const handleInfoDisplay = () => {
+                setDisplay(true);
+        };
+
         return (
-                <div className="chat-header">
+                <div className="chat-header" onClick={handleInfoDisplay}>
                         <div className="mini-profile">
                                 <p className="image">
                                         <img src="www.siusclhscjcks.com" />
@@ -15,11 +30,11 @@ function ChatHeader() {
 
                                 <div className="details">
                                         <p className="username">
-                                                Jonna
+                                                { username }
                                         </p>
 
                                         <p className="status">
-                                                Online
+                                                { status }
                                         </p>
                                 </div>
                         </div>

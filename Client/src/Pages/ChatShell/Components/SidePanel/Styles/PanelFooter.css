@@ -34,7 +34,7 @@
 }
 
 .chat-shell .side-panel .panel-footer .mini-profile .details .username {
-        font-size: var(--primary-font-size);
+        font-size: var(--secondary-font-size);
         font-weight: var(--primary-font-weight);
         color: var(--primary-font-color-light-mode);
 }

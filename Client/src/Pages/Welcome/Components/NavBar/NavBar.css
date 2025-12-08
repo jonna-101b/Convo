@@ -79,6 +79,6 @@
 
 .welcome .nav-bar .sign .sign-up:focus,
 .welcome .nav-bar .sign .sign-up:hover {
-        background-color: var(--system-background-color);
+        background-color: var(--system-accent-color);
         opacity: 1;
 }

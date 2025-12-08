@@ -1,0 +1,44 @@
+.chat-shell .info-panel .files-shared {
+        display: grid;
+        gap: 0.5vh;
+        width: 100%;
+}
+
+.chat-shell .info-panel .files-shared .title {
+        display: grid;
+        font-size: var(--quaternary-font-size);
+        font-weight: var(--primary-font-weight);
+        color: var(--primary-font-color-light-mode);
+        text-align: start;
+        width: 100%;
+        margin-bottom: 3vh;
+}
+
+.chat-shell .info-panel .files-shared .file {
+        display: flex;
+        gap: 2vh;
+        border-radius: var(--primary-border-radius);
+        padding: 1.25vh 4vh;
+        transition: background-color 0.15s linear;
+        cursor: pointer;
+}
+
+.chat-shell .info-panel .files-shared .file:focus,
+.chat-shell .info-panel .files-shared .file:hover {
+        background-color: var(--primary-hover-color-light-mode);
+}
+
+.chat-shell .info-panel .files-shared .file .icon {
+        display: grid;
+        place-content: center;
+}
+
+.chat-shell .info-panel .files-shared .file .icon img {
+        width: 2.75vh;
+}
+
+.chat-shell .info-panel .files-shared .file .value {
+        display: grid;
+        font-size: var(--secondary-font-size);
+        color: var(--primary-font-color-light-mode);
+}

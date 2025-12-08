@@ -1,0 +1,98 @@
+.chat-shell .chat-window .chat-body .chat-toolbar {
+        align-self: center;
+        display: flex;
+        align-items: end;
+        gap: 1vh;
+        background-color: var(--primary-background-color-light-mode);
+        border: 1px solid var(--tertiary-background-color-light-mode);
+        border-radius: 4vh;
+        width: 80%;
+        height: fit-content;
+        margin-top: 2vh;
+        padding: 1.25vh 1.5vh;
+}
+
+.chat-shell .chat-window .chat-body .chat-toolbar img {
+        width: 3.25vh;
+}
+
+.chat-shell .chat-window .chat-body .chat-toolbar .click {
+        display: grid;
+        place-content: center;
+        border-radius: 50%;
+        width: 5.5vh;
+        height: 5.5vh;
+        transition: background-color 0.15s linear;
+        cursor: pointer;
+        position: relative;
+}
+
+.chat-shell .chat-window .chat-body .chat-toolbar .click:focus,
+.chat-shell .chat-window .chat-body .chat-toolbar .click:hover {
+        background-color: var(--primary-hover-color-light-mode);
+}
+
+.chat-shell .chat-window .chat-body .chat-toolbar .click:focus .hover,
+.chat-shell .chat-window .chat-body .chat-toolbar .click:hover .hover {
+        opacity: 1;
+}
+
+.chat-shell .chat-window .chat-body .chat-toolbar .click img {
+        width: 3vh;
+        transition: opacity 0.15s linear;
+}
+
+.chat-shell .chat-window .chat-body .chat-toolbar .click .hover {
+        position: absolute;
+        place-self: center;
+        opacity: 0;
+}
+
+.chat-shell .chat-window .chat-body .chat-toolbar .text-area {
+        flex-grow: 1;
+        display: grid;
+}
+
+.chat-shell .chat-window .chat-body .chat-toolbar .text-area textarea {
+        display: grid;
+        align-items: center;
+        font-family: var(--primary-font-family);
+        font-size: var(--secondary-font-size);
+        color: var(--primary-font-color-light-mode);
+        background-color: transparent;
+        border: none;
+        outline: none;
+        min-height: 5vh;
+        height: 5vh;
+        padding-top: calc(2vh - 9px);
+        resize: none;
+}
+
+.chat-shell .chat-window .chat-body .chat-toolbar .text-area textarea::placeholder {
+        color: var(--secondary-font-color-light-mode);
+}
+
+.chat-shell .chat-window .chat-body .chat-toolbar .send {
+        display: grid;
+        place-content: center;
+        background-color: var(--tertiary-background-color-light-mode);
+        border-radius: 50%;
+        width: 5.5vh;
+        height: 5.5vh;
+        opacity: 0.85;
+        transition: background-color 0.15s linear, opacity 0.15s linear;
+        cursor: pointer;
+}
+
+.chat-shell .chat-window .chat-body .chat-toolbar .send.active {
+        background-color: var(--system-accent-color);
+}
+
+.chat-shell .chat-window .chat-body .chat-toolbar .send:focus,
+.chat-shell .chat-window .chat-body .chat-toolbar .send:hover {
+        opacity: 1;
+}
+
+.chat-shell .chat-window .chat-body .chat-toolbar .send img {
+        width: 3vh;
+}

@@ -1,12 +1,14 @@
-import friends from '../../../../../Mock/Chats';
+import useFriendsHook from '../../../../../Hooks/useFriendsHook';
+import UseSelectHook from '../../../Hooks/UseSelectHook';
 import '../Styles/ChatList.css';
 
 
-function Chat({ chat }) {
+function Chat({ chat, selected, handleClick }) {
         const lastMessage = chat.chatHistory[chat.chatHistory.length - 1];
         const unread = 3;
+
         return (
-                <div className="chat">
+                <div className={`chat ${ selected._id === chat._id ? "selected" : null }`} onClick={() => { handleClick(chat) }} >
                         <p className="profile-pic">
                                 <img src="www.eadjdkdkdkd.com"/>
                         </p>
@@ -36,11 +38,18 @@ function Chat({ chat }) {
         );
 }
 
-function ChatList() {              
+function ChatList() {     
+        const { friends } = useFriendsHook();
+        const { selected, setSelected } = UseSelectHook();
+        
+        const handleClick = (option) => {
+                setSelected(option);
+        };
+
         return (
                 <div className="chat-list">
-                        { friends.map((friend, index) => (
-                                <Chat key={index} chat={friend} />
+                        { friends.map((friend) => (
+                                <Chat key={friend._id} selected={selected} chat={friend} handleClick={handleClick} />
                         )) }
                 </div>
         );

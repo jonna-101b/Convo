@@ -36,11 +36,11 @@
         position: relative;
 }
 
-.chat-shell .side-panel .chat-list .chat:first-child {
+.chat-shell .side-panel .chat-list .chat.selected {
         background-color: var(--system-accent-dimmed-color);
 }
 
-.chat-shell .side-panel .chat-list .chat:first-child:before {
+.chat-shell .side-panel .chat-list .chat.selected:before {
         content: "";
         display: grid;
         background-color: var(--system-accent-color);
@@ -56,8 +56,8 @@
         background-color: var(--primary-hover-color-light-mode);
 }
 
-.chat-shell .side-panel .chat-list .chat:first-child,
-.chat-shell .side-panel .chat-list .chat:first-child {
+.chat-shell .side-panel .chat-list .chat.selected,
+.chat-shell .side-panel .chat-list .chat.selected {
         background-color: var(--system-accent-dimmed-color);
 }
 
@@ -92,13 +92,13 @@
 }
 
 .chat-shell .side-panel .chat-list .chat .name-time .username {
-        font-size: var(--secondary-font-size);
+        font-size: var(--primary-font-size);
         font-weight: var(--primary-font-weight);
         color: var(--primary-font-color-light-mode);
 }
 
 .chat-shell .side-panel .chat-list .chat .name-time .time {
-        font-size: var(--primary-font-size);
+        font-size: var(--secondary-font-size);
         color: var(--secondary-font-color-light-mode);
 }
 
@@ -107,12 +107,12 @@
         grid-template-columns: 1fr auto;
         gap: 1vh;
         width: 100%;
-        font-size: var(--primary-font-size);
+        font-size: var(--secondary-font-size);
         color: var(--secondary-font-color-light-mode);
 }
 
 .chat-shell .side-panel .chat-list .chat .message-unread .message {
-        font-size: var(--primary-font-size);
+        font-size: var(--secondary-font-size);
         color: var(--secondary-font-color-light-mode);
         white-space: nowrap;
         text-overflow: ellipsis;

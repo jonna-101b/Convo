@@ -9,7 +9,9 @@
         --secondary-background-color-light-mode: #D5D5D5;
         --tertiary-background-color-light-mode: #C3C3C3;
         --quaternary-background-color-light-mode:  #888888;
-        --primary-background-color-dark-mode: #0B0D0E;
+        --primary-background-color-dark-mode: #2A2A2A;
+        --secondary-background-color-dark-mode: #000000;
+        --secondary-background-color-dark-mode: #404040;
         --system-accent-color: #942678;
         --system-accent-dimmed-color: rgba(145, 38, 118, 0.2);
 
@@ -19,6 +21,7 @@
 
 
         --primary-border-radius: 2vh;
+        --secondary-border-radius: 4vh;
 
         
         --primary-font-color-light-mode: #0B0D0E;
@@ -26,14 +29,14 @@
         --tertiary-font-color-light-mode: #F5F5F5;
         --primary-font-color-dark-mode: #F5F5F5;
         --secondary-font-color-dark-mode: #888888;
-        --system-font-color: #942678;
+        --system-font-color: #9F0082;
 
 
         --primary-font-family: Poppins, Arial, Helvetica, sans-serif;
 
 
-        --primary-font-size: 14px;
-        --secondary-font-size: 16px;
+        --primary-font-size: 16px;
+        --secondary-font-size: 14px;
         --tertiary-font-size: 12px;
         --quaternary-font-size: 18px;
         --system-max-font-size: 48px;

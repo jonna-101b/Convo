@@ -4,8 +4,9 @@
         align-items: center;
         background-color: var(--primary-background-color-light-mode);
         border-bottom: 1px solid var(--tertiary-background-color-light-mode);
-        height: fit-content;
-        padding: 1.5vh 2.5vh;
+        height: 12.5vh;
+        padding-inline: 2.5vh;
+        cursor: pointer;
 }
 
 .chat-shell .chat-window .chat-header .mini-profile {
@@ -37,13 +38,13 @@
 }
 
 .chat-shell .chat-window .chat-header .mini-profile .details .username {
-        font-size: var(--secondary-font-size);
+        font-size: var(--primary-font-size);
         font-weight: var(--primary-font-weight);
         color: var(--primary-font-color-light-mode);
 }
 
 .chat-shell .chat-window .chat-header .mini-profile .details .status {
-        font-size: var(--primary-font-size);
+        font-size: var(--secondary-font-size);
         color: var(--system-accent-color);
 }
 

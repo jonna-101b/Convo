@@ -1,0 +1,190 @@
+.chat-shell .info-panel .info-body {
+        display: grid;
+        color: var(--primary-font-color-light-mode);
+        background-color: var(--secondary-background-color-light-mode);
+        border-radius: var(--secondary-border-radius);
+        width: 100%;
+        margin-top: 4vh;
+}
+
+.chat-shell .info-panel .info-body .top {
+        display: grid;
+        gap: 1vh;
+        border-bottom: 4px solid var(--primary-background-color-light-mode);
+        padding: 2vh 3vh;
+        padding-top: 9.5vh;
+        position: relative;
+}
+
+.chat-shell .info-panel .info-body .top .profile-picture {
+        justify-self: center;
+        display: grid;
+        place-content: center;
+        background-color: var(--tertiary-background-color-light-mode);
+        border: 4px solid var(--primary-background-color-light-mode);
+        border-radius: 50%;
+        position: absolute;
+        top: -7.5vh;
+        width: fit-content;
+        height: fit-content;
+        cursor: pointer;
+}
+
+.chat-shell .info-panel .info-body .top .profile-picture img {
+        width: 15vh;
+        height: 15vh;
+        border-radius: 50%;
+        aspect-ratio: 1;
+}
+
+.chat-shell .info-panel .info-body .top .username {
+        display: grid;
+        place-content: center;
+        font-size: var(--primary-font-size);
+        font-weight: var(--primary-font-weight);
+        color: var(--primary-font-color-light-mode);
+        text-align: center;
+}
+
+.chat-shell .info-panel .info-body .top .status {
+        display: grid;
+        place-content: center;
+        font-size: var(--secondary-font-size);
+        color: var(--system-accent-color);
+        text-align: center;
+}
+
+.chat-shell .info-panel .info-body .top .mutual-friends-groups {
+        display: flex;
+        justify-content: space-between;
+        gap: 2vh;
+        width: 100%;
+}
+
+.chat-shell .info-panel .info-body .top .mutual-friends-groups div {
+        display: grid;
+        width: fit-content;
+        padding: 0.25vh 0.5vh;
+        cursor: pointer;
+}
+
+.chat-shell .info-panel .info-body .top .mutual-friends-groups div .value {
+        display: grid;
+        font-size: var(--secondary-font-size);
+        font-weight: var(--primary-font-weight);
+        color: var(--primary-font-color-light-mode);
+        text-align: center;
+}
+
+.chat-shell .info-panel .info-body .top .mutual-friends-groups div .title {
+        display: grid;
+        font-size: var(--tertiary-font-size);
+        color: var(--secondary-font-color-light-mode);
+        text-align: center;
+}
+
+.chat-shell .info-panel .info-body .middle {
+        display: grid;
+        gap: 2vh;
+        border-bottom: 4px solid var(--primary-background-color-light-mode);
+        padding: 2vh 3vh;
+}
+
+.chat-shell .info-panel .info-body .middle .middle-element {
+        display: flex;
+        gap: 3vh;
+}
+
+.chat-shell .info-panel .info-body .middle .middle-element .icon {
+        display: grid;
+        place-content: center;
+}
+
+.chat-shell .info-panel .info-body .middle .middle-element .icon img {
+        width: 3.75vh;
+}
+
+.chat-shell .info-panel .info-body .middle .middle-element .details {
+        display: grid;
+}
+
+.chat-shell .info-panel .info-body .middle .middle-element .details .value {
+        display: grid;
+        font-size: var(--secondary-font-size);
+        color: var(--primary-font-color-light-mode);
+}
+
+.chat-shell .info-panel .info-body .middle .middle-element .details .title {
+        display: grid;
+        font-size: var(--tertiary-font-size);
+        color: var(--secondary-font-color-light-mode);
+}
+
+.chat-shell .info-panel .info-body .bottom {
+        display: grid;
+        gap: 2vh;
+        padding: 2vh 3vh;
+        padding-bottom: 3vh;
+}
+
+.chat-shell .info-panel .info-body .bottom .bottom-element {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 3vh;
+}
+
+.chat-shell .info-panel .info-body .bottom .bottom-element .icon {
+        display: grid;
+        place-content: center;
+}
+
+.chat-shell .info-panel .info-body .bottom .bottom-element .icon img {
+        width: 3.75vh;
+}
+
+.chat-shell .info-panel .info-body .bottom .bottom-element .details {
+        flex-grow: 1;
+        display: flex;
+        justify-content: space-between;
+}
+
+.chat-shell .info-panel .info-body .bottom .bottom-element .details .title {
+        display: grid;
+        font-size: var(--secondary-font-size);
+        color: var(--primary-font-color-light-mode);
+}
+
+.chat-shell .info-panel .info-body .bottom .bottom-element .details .value {
+        display: grid;
+        background-color: var(--quaternary-background-color-light-mode);
+        border-radius: 3vh;
+        width: 6vh;
+        height: 2.5vh;
+        transition: background-color 0.15s linear;
+        cursor: pointer;
+}
+
+.chat-shell .info-panel .info-body .bottom .bottom-element .details .value.on {
+        background-color: var(--system-accent-color);
+}
+
+.chat-shell .info-panel .info-body .bottom .bottom-element .details .value .ball {
+        justify-self: start;
+        display: grid;
+        place-content: center;
+        background-color: var(--primary-background-color-light-mode);
+        border: 3px solid var(--quaternary-background-color-light-mode);
+        border-radius: 50%;
+        width: 3.5vh;
+        height: 3.5vh;
+        transition: border-color 0.15s linear;
+        position: relative;
+        top: -0.5vh;
+}
+
+
+.chat-shell .info-panel .info-body .bottom .bottom-element .details .value.on .ball {
+        justify-self: end;
+        border-color: var(--system-accent-color);
+} 
