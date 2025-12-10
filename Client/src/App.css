@@ -9,14 +9,21 @@
         --secondary-background-color-light-mode: #D5D5D5;
         --tertiary-background-color-light-mode: #C3C3C3;
         --quaternary-background-color-light-mode:  #888888;
+        --glassy-background-color-light-mode: rgba(255, 255, 255, 0.75);
+        --background-shadow-color-light-mode: #707070;
+        
+        
         --primary-background-color-dark-mode: #2A2A2A;
         --secondary-background-color-dark-mode: #000000;
         --secondary-background-color-dark-mode: #404040;
+        
         --system-accent-color: #942678;
+        --system-accent-dark-color: #7c1b64;
         --system-accent-dimmed-color: rgba(145, 38, 118, 0.2);
 
 
         --primary-hover-color-light-mode: #E1E1E1;
+        --secondary-hover-color-light-mode: #c3c3c3;
         --tertiary-hover-color-light-mode: rgba(255, 68, 0, 0.2);
 
 
@@ -27,6 +34,7 @@
         --primary-font-color-light-mode: #0B0D0E;
         --secondary-font-color-light-mode: #888888;
         --tertiary-font-color-light-mode: #F5F5F5;
+
         --primary-font-color-dark-mode: #F5F5F5;
         --secondary-font-color-dark-mode: #888888;
         --system-font-color: #9F0082;

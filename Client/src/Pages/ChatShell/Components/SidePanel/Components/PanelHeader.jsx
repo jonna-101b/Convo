@@ -1,3 +1,4 @@
+import usePopUpHook from '../../../Hooks/UsePopUpHook';
 import ConvoLogoLight from '../../../../../assets/Images/ChatShell/SidePanel/Convo-logo-light.png';
 import ConvoLogoDark from '../../../../../assets/Images/ChatShell/SidePanel/Convo-logo-dark.png';
 import ActivityLightIcon from '../../../../../assets/Icons/ChatShell/SidePanel/activity-light.png';
@@ -9,6 +10,16 @@ import SettingsDarkIcon from '../../../../../assets/Icons/ChatShell/SidePanel/se
 import '../Styles/PanelHeader.css';
 
 function PanelHeader() {
+        const { setLabel } = usePopUpHook();
+
+        const handleRadarDisplay = () => {
+                setLabel("social radar");
+        };
+
+        const handleSearchDisplay = () => {
+                setLabel("search panel");
+        };
+
         return (
                 <div className="panel-header">
                         <p className="logo">
@@ -16,11 +27,11 @@ function PanelHeader() {
                         </p>
 
                         <div className="tools">
-                                <p className="acitivity">
+                                <p className="social-radar-icon" onClick={handleRadarDisplay} >
                                         <img src={ActivityLightIcon} alt="Search light icon" />
                                 </p>
 
-                                <p className="search">
+                                <p className="search-icon" onClick={handleSearchDisplay} >
                                         <img src={SearchLightIcon} alt="Search light icon" />
                                 </p>
 

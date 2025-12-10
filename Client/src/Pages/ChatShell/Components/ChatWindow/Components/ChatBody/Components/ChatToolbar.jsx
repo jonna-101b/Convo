@@ -1,3 +1,4 @@
+import { useRef, useState } from 'react';
 import ClipIcon from '../../../../../../../assets/Icons/ChatShell/ChatWindow/clip.png';
 import ClipLightIcon from '../../../../../../../assets/Icons/ChatShell/ChatWindow/clip-hover-light.png';
 import ClipDarkIcon from '../../../../../../../assets/Icons/ChatShell/ChatWindow/clip-hover-dark.png';
@@ -15,7 +16,6 @@ import FileLightIcon from '../../../../../../../assets/Icons/ChatShell/ChatWindo
 import FileDarkIcon from '../../../../../../../assets/Icons/ChatShell/ChatWindow/file-hover-dark.png';
 import SendIcon from '../../../../../../../assets/Icons/ChatShell/ChatWindow/send.png';
 import '../Styles/ChatToolbar.css';
-import { useRef, useState } from 'react';
 
 
 function ChatToolbar() {

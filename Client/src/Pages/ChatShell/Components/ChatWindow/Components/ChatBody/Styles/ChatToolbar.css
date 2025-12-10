@@ -12,10 +12,6 @@
         padding: 1.25vh 1.5vh;
 }
 
-.chat-shell .chat-window .chat-body .chat-toolbar img {
-        width: 3.25vh;
-}
-
 .chat-shell .chat-window .chat-body .chat-toolbar .click {
         display: grid;
         place-content: center;

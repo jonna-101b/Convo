@@ -1,8 +1,15 @@
 import LogOutIcon from '../../../../../assets/Icons/ChatShell/SidePanel/logout.png';
+import usePopUpHook from '../../../Hooks/UsePopUpHook';
 import '../Styles/PanelFooter.css';
 
 
 function PanelFooter() {
+        const { setLabel } = usePopUpHook();
+
+        const handleLogOut = () => {
+                setLabel("log out");
+        };
+
         return (
                 <div className="panel-footer">
                         <div className="mini-profile">
@@ -22,7 +29,7 @@ function PanelFooter() {
                         </div>
 
                         <div className="tools">
-                                <p className="logout">
+                                <p className="logout" onClick={handleLogOut} >
                                         <img src={LogOutIcon} alt="Log out icon" />
                                 </p>
                         </div>
