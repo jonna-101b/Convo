@@ -57,7 +57,7 @@ function EntitiesStatus() {
                         const stepSize = lengthStep * 33.3;
                         const gapSize = lengthStep * 2;
                         tabIndicator.style.transform = `calc(${stepSize}% + ${gapSize}vh)`;
-                        tabIndicator.style.transform = "10vh";
+                        tabIndicator.styles.transform = "10vh";
                 }
         }
 
