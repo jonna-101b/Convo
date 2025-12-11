@@ -28,11 +28,10 @@ function ChatToolbar() {
 
                 const textarea = textareaRef.current;
                 const MAX_HEIGHT =  105;
-                const newHeight = textarea.scrollHeight;
                 textarea.style.height = 20 + "px";
 
-                if (newHeight <= MAX_HEIGHT) {
-                        textarea.style.height = newHeight + "px";
+                if (textarea.scrollHeight <= MAX_HEIGHT) {
+                        textarea.style.height = textarea.scrollHeight + "px";
                         textarea.style.overflowY = "hidden";
                 } else {
                         textarea.style.height = MAX_HEIGHT + "px";

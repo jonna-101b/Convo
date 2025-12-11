@@ -3,6 +3,7 @@ import MailIcon from '../../../../../assets/Icons/ChatShell/InfoPanel/mail.png';
 import QuoteIcon from '../../../../../assets/Icons/ChatShell/InfoPanel/quote.png';
 import NotificationsIcon from '../../../../../assets/Icons/ChatShell/InfoPanel/notification.png';
 import '../Styles/InfoBody.css';
+import usePopUpHook from '../../../Hooks/UsePopUpHook';
 
 
 const isEmpty = (obj) => {
@@ -11,6 +12,11 @@ const isEmpty = (obj) => {
 
 function InfoBody() {
         const { selected } = UseSelectHook();
+        const { setLabel } = usePopUpHook();
+
+        const handleEntitiesClick = () => {
+                setLabel("entities status");
+        };
 
         if (isEmpty(selected)) {
                 return null;
@@ -24,17 +30,17 @@ function InfoBody() {
                                 </p>
 
                                 <p className="username">
-                                        { selected.username }
+                                        {selected.username}
                                 </p>
 
                                 <p className="status">
                                         Online
                                 </p>
 
-                                <div className="mutual-friends-groups">
+                                <div className="mutual-friends-groups" onClick={handleEntitiesClick} >
                                         <div className="mutual">
                                                 <p className="value">
-                                                        { selected.mutualFriends }
+                                                        {selected.mutualFriends}
                                                 </p>
 
                                                 <p className="title">
@@ -42,9 +48,9 @@ function InfoBody() {
                                                 </p>
                                         </div>
 
-                                        <div className="friends">
+                                        <div className="friends" onClick={handleEntitiesClick} >
                                                 <p className="value">
-                                                        { selected.totalFriends }
+                                                        {selected.totalFriends}
                                                 </p>
 
                                                 <p className="title">
@@ -52,9 +58,9 @@ function InfoBody() {
                                                 </p>
                                         </div>
 
-                                        <div className="groups">
+                                        <div className="groups" onClick={handleEntitiesClick} >
                                                 <p className="value">
-                                                        { selected.groups }
+                                                        {selected.groups}
                                                 </p>
 
                                                 <p className="title">
@@ -72,7 +78,7 @@ function InfoBody() {
 
                                         <div className="details">
                                                 <p className="value">
-                                                        { selected.email }
+                                                        {selected.email}
                                                 </p>
 
                                                 <p className="title">
@@ -88,7 +94,7 @@ function InfoBody() {
 
                                         <div className="details">
                                                 <p className="value">
-                                                        { selected.bio }
+                                                        {selected.bio}
                                                 </p>
 
                                                 <p className="title">
@@ -111,7 +117,7 @@ function InfoBody() {
 
                                                 <p className={`value ${selected.notifications ? "on" : null}`}>
                                                         <span className="ball"></span>
-                                                </p> 
+                                                </p>
                                         </div>
                                 </div>
                         </div>

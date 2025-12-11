@@ -107,7 +107,7 @@ const friends = [
                                 file: null,
                                 date: "2025-02-01",
                                 time: "10:03",
-                                seen: false
+                                seen: true
                         },
                         {
                                 _id: "c2b02",
@@ -116,7 +116,7 @@ const friends = [
                                 file: null,
                                 date: "2025-02-01",
                                 time: "10:10",
-                                seen: false
+                                seen: true
                         },
                         {
                                 _id: "c2b03",
@@ -125,7 +125,7 @@ const friends = [
                                 file: null,
                                 date: "2025-02-01",
                                 time: "10:11",
-                                seen: false
+                                seen: true
                         },
                         {
                                 _id: "c2b04",
@@ -134,7 +134,7 @@ const friends = [
                                 file: null,
                                 date: "2025-02-01",
                                 time: "10:15",
-                                seen: false
+                                seen: true
                         },
                         {
                                 _id: "c2b05",
@@ -143,7 +143,7 @@ const friends = [
                                 file: null,
                                 date: "2025-02-01",
                                 time: "10:16",
-                                seen: false
+                                seen: true
                         },
                         {
                                 _id: "c2b06",
@@ -152,7 +152,7 @@ const friends = [
                                 file: null,
                                 date: "2025-02-01",
                                 time: "10:17",
-                                seen: false
+                                seen: true
                         }
                 ]
         },

@@ -5,7 +5,17 @@ import '../Styles/ChatList.css';
 
 function Chat({ chat, selected, handleClick }) {
         const lastMessage = chat.chatHistory[chat.chatHistory.length - 1];
-        const unread = 3;
+        
+        const countUnread = (chats) => {
+                let counter = 0;
+                for (let chat of chats) {
+                        if (chat.owner === "friend" && !chat.seen) {
+                                counter += 1;
+                        }
+                }
+
+                return counter;
+        };
 
         return (
                 <div className={`chat ${ selected._id === chat._id ? "selected" : null }`} onClick={() => { handleClick(chat) }} >
@@ -29,8 +39,8 @@ function Chat({ chat, selected, handleClick }) {
                                                 { lastMessage ? lastMessage.message: null }
                                         </p>
 
-                                        <p className="unread">
-                                                { unread }
+                                        <p className={`unread ${ countUnread(chat.chatHistory) ? "active" : null }`}>
+                                                { countUnread(chat.chatHistory) }
                                         </p>
                                 </div>
                         </div>

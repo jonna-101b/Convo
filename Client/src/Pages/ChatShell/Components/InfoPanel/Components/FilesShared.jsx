@@ -12,7 +12,6 @@ import LinkDarkIcon from '../../../../../assets/Icons/ChatShell/InfoPanel/link-d
 import VoiceLightIcon from '../../../../../assets/Icons/ChatShell/InfoPanel/mic-light.png';
 import VoiceDarkIcon from '../../../../../assets/Icons/ChatShell/InfoPanel/mic-dark.png';
 import '../Styles/FilesShared.css';
-import { useState } from 'react';
 
 
 const File = ({ fileName, value }) => {
@@ -26,7 +25,7 @@ const File = ({ fileName, value }) => {
         };
 
         return (
-                <div className="file">
+                <div className={`file ${value ? null : "empty"}`}>
                         <p className="icon">
                                 <img src={ fileIcon[fileName] } />
                         </p>
