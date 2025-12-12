@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import useFriendsHook from '../../../../../../Hooks/useFriendsHook';
+import useGroupsHook from '../../../../../../Hooks/useGroupsHook';
 import UseSelectHook from '../../../../Hooks/UseSelectHook';
 import './EntitiesStatus.css';
 
@@ -30,17 +31,50 @@ function Entity({ picture, name, extraInfo, action }) {
         );
 }
 
+function EntityLabel({ label, activeTab, handleTabClick }) {
+        return (
+                <div className={`${label.name.toLowerCase()} entity-labels ${activeTab === label.name.toLowerCase() ? "active" : null}`} onClick={() => { handleTabClick(label.name.toLowerCase(), label._id) }} >
+                        <p className="value">
+                                { label.value }
+                        </p>
+
+                        <p className="label">
+                                { label.name }
+                        </p>
+                </div>
+        );
+}
+
 function EntitiesStatus() {
         const { friends } = useFriendsHook();
+        const { groups } = useGroupsHook();
         const { selected } = UseSelectHook();
         const status = "online";
         const [activeTab, setActiveTab] = useState("mutual");
         const tabIndicatorRef = useRef(null);
+        const entityLabels = [
+                {
+                        _id: 0,
+                        name: "Mutual",
+                        value: selected.mutualFriends
+                },
+                {
+                        _id: 1,
+                        name: "Friends",
+                        value: selected.totalFriends
+                },
+                {
+                        _id: 2,
+                        name: "Groups",
+                        value: selected.groups
+                },
+        ];
+        const entities = { "mutual": friends, "friends": friends, "groups": groups };
 
         const countUnread = (chats) => {
                 let counter = 0;
                 for (let chat of chats) {
-                        if (!chat.seen) {
+                        if ( chat.owner != "you" && !chat.seen ) {
                                 counter += 1;
                         }
                 }
@@ -53,11 +87,9 @@ function EntitiesStatus() {
 
                 const tabIndicator = tabIndicatorRef.current;
                 if (tabIndicator) {
-                        console.log("Hello");
-                        const stepSize = lengthStep * 33.3;
+                        const stepSize = lengthStep * tabIndicator.offsetWidth;
                         const gapSize = lengthStep * 2;
-                        tabIndicator.style.transform = `calc(${stepSize}% + ${gapSize}vh)`;
-                        tabIndicator.style.transform = "10vh";
+                        tabIndicator.style.transform = `translateX(calc(${stepSize}px + ${gapSize}vh))`;
                 }
         }
 
@@ -80,46 +112,20 @@ function EntitiesStatus() {
                         </div>
 
                         <div className="status-bar">
-                                <div className={`mutual entity-labels ${activeTab === "mutual" ? "active" : null}`} onClick={() => { handleTabClick("mutual", 0) }} >
-                                        <p className="value">
-                                                {selected.mutualFriends}
-                                        </p>
-
-                                        <p className="label">
-                                                Mutual
-                                        </p>
-                                </div>
-
-                                <div className={`friends entity-labels ${activeTab === "friends" ? "active" : null}`} onClick={() => { handleTabClick("friends", 1) }} >
-                                        <p className="value">
-                                                {selected.totalFriends}
-                                        </p>
-
-                                        <p className="label">
-                                                Friends
-                                        </p>
-                                </div>
-
-                                <div className={`groups entity-labels ${activeTab === "groups" ? "active" : null}`} onClick={() => { handleTabClick("groups", 2) }} >
-                                        <p className="value">
-                                                {selected.groups}
-                                        </p>
-
-                                        <p className="label">
-                                                Groups
-                                        </p>
-                                </div>
+                                { entityLabels.map((label) => (
+                                        <EntityLabel key={label} label={label} activeTab={activeTab} handleTabClick={handleTabClick} />
+                                )) }
 
                                 <p className="active-tab-indicator" ref={tabIndicatorRef} ></p>
                         </div>
 
                         <div className="list">
-                                {friends.map((friend) => (
+                                {entities[activeTab].map((entity) => (
                                         <Entity
-                                                key={friend._id}
-                                                name={friend.username}
-                                                extraInfo={friend.email}
-                                                action={countUnread(friend.chatHistory)}
+                                                key={entity._id}
+                                                name={entity.username ? entity.username : entity.groupName}
+                                                extraInfo={entity.email ? entity.email : entity.members}
+                                                action={countUnread(entity.chatHistory)}
                                         />
                                 ))}
                         </div>

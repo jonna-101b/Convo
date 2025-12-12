@@ -1,4 +1,5 @@
 import { FriendsContextProvider } from "../../Contexts/FriendsContext";
+import { GroupsContextProvider } from "../../Contexts/GroupsContext";
 import { SelectedChatContextProvider } from "./Contexts/SelectedChatContext";
 import { PopUpContextProvider } from "./Contexts/PopUpContext";
 import { InfoDisplayContextProvider } from "./Contexts/InfoDisplayContext";
@@ -12,21 +13,23 @@ import './ChatShell.css';
 function ChatShell() {
         return (
                 <FriendsContextProvider>
-                        <SelectedChatContextProvider>
-                                <PopUpContextProvider>
-                                        <InfoDisplayContextProvider>
-                                                <div className="chat-shell">
-                                                        <SidePanel />
+                        <GroupsContextProvider>
+                                <SelectedChatContextProvider>
+                                        <PopUpContextProvider>
+                                                <InfoDisplayContextProvider>
+                                                        <div className="chat-shell">
+                                                                <SidePanel />
 
-                                                        <ChatWindow />
+                                                                <ChatWindow />
 
-                                                        <InfoPanel />
+                                                                <InfoPanel />
 
-                                                        <PopUp />
-                                                </div>
-                                        </InfoDisplayContextProvider>
-                                </PopUpContextProvider>
-                        </SelectedChatContextProvider>
+                                                                <PopUp />
+                                                        </div>
+                                                </InfoDisplayContextProvider>
+                                        </PopUpContextProvider>
+                                </SelectedChatContextProvider>
+                        </GroupsContextProvider>
                 </FriendsContextProvider>
         );
 }
