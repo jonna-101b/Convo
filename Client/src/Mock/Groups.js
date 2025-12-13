@@ -12,7 +12,7 @@ const groups = [
                         audios: 3,
                         documents: 4,
                         links: 10,
-                        voiceMessages: 7
+                        voice: 7
                 },
                 chatHistory: [
                         {
@@ -130,7 +130,7 @@ const groups = [
                         audios: 1,
                         documents: 2,
                         links: 6,
-                        voiceMessages: 4
+                        voice: 4
                 },
                 chatHistory: [
                         {
@@ -288,7 +288,7 @@ const groups = [
                         audios: 0,
                         documents: 2,
                         links: 9,
-                        voiceMessages: 3
+                        voice: 3
                 },
                 chatHistory: [
                         {
@@ -456,7 +456,7 @@ const groups = [
                         audios: 2,
                         documents: 12,
                         links: 15,
-                        voiceMessages: 5
+                        voice: 5
                 },
                 chatHistory: [
                         {
@@ -644,7 +644,7 @@ const groups = [
                         audios: 1,
                         documents: 4,
                         links: 13,
-                        voiceMessages: 2
+                        voice: 2
                 },
                 chatHistory: [
                         {
@@ -832,7 +832,7 @@ const groups = [
                         audios: 0,
                         documents: 1,
                         links: 8,
-                        voiceMessages: 6
+                        voice: 6
                 },
                 chatHistory: [
                         {
@@ -1010,7 +1010,7 @@ const groups = [
                         audios: 3,
                         documents: 1,
                         links: 6,
-                        voiceMessages: 4
+                        voice: 4
                 },
                 chatHistory: [
                         {

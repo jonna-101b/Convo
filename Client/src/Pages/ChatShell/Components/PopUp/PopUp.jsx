@@ -4,11 +4,18 @@ import SocialRadar from './Components/SocialRadar/SocialRadar';
 import SearchPanel from './Components/Search/SearchPanel';
 import EntitiesStatus from './Components/EntitiesStatus/EntitiesStatus';
 import './PopUp.css';
+import FilesShared from './Components/FilesShared/FilesShared';
 
 
 function PopUp() {
         const { label, setLabel } = usePopUpHook();
-        const popComponents = { "log out": <LogOut />, "social radar": <SocialRadar />, "search panel": <SearchPanel />, "entities status": <EntitiesStatus /> }
+        const popComponents = { 
+                "log out": <LogOut />, 
+                "social radar": <SocialRadar />, 
+                "search panel": <SearchPanel />, 
+                "entities status": <EntitiesStatus />,
+                "files shared": <FilesShared />
+        };
 
         const handleClose = () => {
                 setLabel("");

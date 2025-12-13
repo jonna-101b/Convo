@@ -1,4 +1,4 @@
-.chat-shell .pop-up .entities-status {
+.chat-shell .pop-up .files-shared {
         place-self: center;
         display: grid;
         gap: 2vh;
@@ -7,7 +7,7 @@
         border: 1px solid var(--tertiary-background-color-light-mode);
         border-radius: var(--primary-border-radius);
         box-shadow: 0 0 5vh var(--background-shadow-color-light-mode);
-        width: 30vw;  
+        width: 40vw;  
         padding-block: 4vh;
         overflow-y: auto;
         -webkit-backdrop-filter: blur(10px);
@@ -15,7 +15,7 @@
         position: relative;
 }
 
-.chat-shell .pop-up .entities-status .mini-profile {
+.chat-shell .pop-up .files-shared .mini-profile {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -24,7 +24,7 @@
         padding-top: 2vh
 }
 
-.chat-shell .pop-up .entities-status .mini-profile .image {
+.chat-shell .pop-up .files-shared .mini-profile .image {
         place-self: center;
         display: grid;
         place-content: center;
@@ -34,55 +34,61 @@
         height: fit-content;
 }
 
-.chat-shell .pop-up .entities-status .mini-profile .image img {
+.chat-shell .pop-up .files-shared .mini-profile .image img {
         width: 8vh;
         height: 8vh;
         border-radius: 50%;
         aspect-ratio: 1;
 }
 
-.chat-shell .pop-up .entities-status .mini-profile .details {
+.chat-shell .pop-up .files-shared .mini-profile .details {
         display: grid;
         align-items: center;
         gap: 0.5vh;
 }
 
-.chat-shell .pop-up .entities-status .mini-profile .details .username {
+.chat-shell .pop-up .files-shared .mini-profile .details .username {
         font-size: var(--primary-font-size);
         font-weight: var(--primary-font-weight);
         color: var(--primary-font-color-light-mode);
         height: fit-content;
 }
 
-.chat-shell .pop-up .entities-status .mini-profile .details .status {
+.chat-shell .pop-up .files-shared .mini-profile .details .status {
         font-size: var(--secondary-font-size);
         color: var(--system-accent-color);
         height: fit-content;
 }
 
-.chat-shell .pop-up .entities-status .status-bar {
+.chat-shell .pop-up .files-shared .status-bar {
         justify-self: center;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        display: flex;
+        justify-content: start;
         align-items: center;
-        gap: 2vh;
+        gap: 1vh;
         border-bottom: 1px solid var(--tertiary-background-color-light-mode);
         width: calc(100% - 8vh);
+        overflow-x: auto;
         position: relative;
 }
 
-.chat-shell .pop-up .entities-status .status-bar .entity-labels {
-        justify-self: center;
+.chat-shell .pop-up .files-shared .status-bar::-webkit-scrollbar {
+        height: 0;
+}
+
+.chat-shell .pop-up .files-shared .status-bar .file-labels {
+        flex: 0 0 18vh;
         display: flex;
+        justify-content: center;
         align-items: center;
         gap: 1vh;
         font-weight: var(--primary-font-weight);
-        width: fit-content;
+        width: 18vh;
         padding-block: 2vh;
         cursor: pointer;
 }
 
-.chat-shell .pop-up .entities-status .status-bar .entity-labels .value {
+.chat-shell .pop-up .files-shared .status-bar .file-labels .value {
         display: grid;
         place-content: center;
         font-size: var(tertiary-font-size);
@@ -96,12 +102,12 @@
         transition: background-color 0.15s linear, color 0.15s linear;
 }
 
-.chat-shell .pop-up .entities-status .status-bar .entity-labels.active .value {
+.chat-shell .pop-up .files-shared .status-bar .file-labels.active .value {
         color: var(--system-accent-color);
         background-color: var(--system-accent-dimmed-color);
 }
 
-.chat-shell .pop-up .entities-status .status-bar .entity-labels .label {
+.chat-shell .pop-up .files-shared .status-bar .file-labels .label {
         display: grid;
         place-content: center;
         font-size: var(--secondary-font-size);
@@ -109,41 +115,41 @@
         transition: color 0.15s linear;
 }
 
-.chat-shell .pop-up .entities-status .status-bar .entity-labels.active .label {
+.chat-shell .pop-up .files-shared .status-bar .file-labels.active .label {
         color: var(--system-accent-color);
 }
 
-.chat-shell .pop-up .entities-status .status-bar .active-tab-indicator {
+.chat-shell .pop-up .files-shared .status-bar .active-tab-indicator {
         background-color: var(--system-accent-color);
-        border-radius: 10vh 10vh 0 0;
+        border-radius: 10vh 10vh 0 0 ;
         position: absolute;
         left: 0;
         bottom: 0;
-        width: calc(33.3% - (4vh  * 0.33));
+        width: 18vh;
         height: 0.6vh;
         transition: transform 0.15s linear;
 }
 
-.chat-shell .pop-up .entities-status .list {
+.chat-shell .pop-up .files-shared .list {
         display: grid;
         height: 45vh;
         overflow-y: auto;
 }
 
-.chat-shell .pop-up .entities-status .list::-webkit-scrollbar {
+.chat-shell .pop-up .files-shared .list::-webkit-scrollbar {
         width: 8px;
 }
 
-.chat-shell .pop-up .entities-status .list::-webkit-scrollbar-thumb {
+.chat-shell .pop-up .files-shared .list::-webkit-scrollbar-thumb {
         background: var(--secondary-background-color-light-mode);
         border-radius: 4px;
 }
 
-.chat-shell .pop-up .entities-status .list::-webkit-scrollbar-thumb:hover {
+.chat-shell .pop-up .files-shared .list::-webkit-scrollbar-thumb:hover {
         background: var(--tertiary-background-color-light-mode);
 }
 
-.chat-shell .pop-up .entities-status .list .entity {
+.chat-shell .pop-up .files-shared .list .file {
         display: flex;
         gap: 2vh;
         width: 100%;
@@ -152,12 +158,12 @@
         cursor: pointer;
 }
 
-.chat-shell .pop-up .entities-status .list .entity:focus,
-.chat-shell .pop-up .entities-status .list .entity:hover {
+.chat-shell .pop-up .files-shared .list .file:focus,
+.chat-shell .pop-up .files-shared .list .file:hover {
         background-color: var(--primary-hover-color-light-mode);
 }
 
-.chat-shell .pop-up .entities-status .list .entity .picture {
+.chat-shell .pop-up .files-shared .list .file .picture {
         display: grid;
         place-content: center;
         background-color: var(--tertiary-background-color-light-mode);
@@ -166,13 +172,13 @@
         height: fit-content;
 }
 
-.chat-shell .pop-up .entities-status .list .entity .picture {
+.chat-shell .pop-up .files-shared .list .file .picture {
         width: 7vh;
         height: 7vh;
         border-radius: 50%;
 }
 
-.chat-shell .pop-up .entities-status .details {
+.chat-shell .pop-up .files-shared .details {
         flex-grow: 1;
         display: flex;
         gap: 2vh;
@@ -180,20 +186,20 @@
         align-items: center;
 }
 
-.chat-shell .pop-up .entities-status .details .info {
+.chat-shell .pop-up .files-shared .details .info {
         display: grid;
         gap: 1vh;
 }
 
-.chat-shell .pop-up .entities-status .details .info .name {
+.chat-shell .pop-up .files-shared .details .info .name {
         font-weight: var(--primary-font-weight);
 }
 
-.chat-shell .pop-up .entities-status .details .info .extra-info {
+.chat-shell .pop-up .files-shared .details .info .extra-info {
         color: var(--secondary-font-color-light-mode);
 }
 
-.chat-shell .pop-up .entities-status .details .action {
+.chat-shell .pop-up .files-shared .details .action {
         display: grid;
         place-content: center;
         font-size: var(tertiary-font-size);
@@ -206,6 +212,6 @@
         padding-inline: 0.75vh;
 }
 
-.chat-shell .pop-up .entities-status .details .action.empty {
+.chat-shell .pop-up .files-shared .details .action.empty {
         display: none;
 }

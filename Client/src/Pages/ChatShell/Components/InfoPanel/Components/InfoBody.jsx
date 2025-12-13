@@ -2,8 +2,9 @@ import UseSelectHook from '../../../Hooks/UseSelectHook';
 import MailIcon from '../../../../../assets/Icons/ChatShell/InfoPanel/mail.png';
 import QuoteIcon from '../../../../../assets/Icons/ChatShell/InfoPanel/quote.png';
 import NotificationsIcon from '../../../../../assets/Icons/ChatShell/InfoPanel/notification.png';
-import '../Styles/InfoBody.css';
 import usePopUpHook from '../../../Hooks/UsePopUpHook';
+import '../Styles/InfoBody.css';
+import useSelectedTabStatusHook from '../../../Hooks/useSelectedTabStatusHook';
 
 
 const isEmpty = (obj) => {
@@ -13,9 +14,11 @@ const isEmpty = (obj) => {
 function InfoBody() {
         const { selected } = UseSelectHook();
         const { setLabel } = usePopUpHook();
+        const { setSelectedTab } = useSelectedTabStatusHook();
 
-        const handleEntitiesClick = () => {
+        const handleEntitiesClick = (tabName) => {
                 setLabel("entities status");
+                setSelectedTab(tabName);
         };
 
         if (isEmpty(selected)) {
@@ -37,8 +40,8 @@ function InfoBody() {
                                         Online
                                 </p>
 
-                                <div className="mutual-friends-groups" onClick={handleEntitiesClick} >
-                                        <div className="mutual">
+                                <div className="mutual-friends-groups">
+                                        <div className="mutual"  onClick={() => {handleEntitiesClick("mutual")}} >
                                                 <p className="value">
                                                         {selected.mutualFriends}
                                                 </p>
@@ -48,7 +51,7 @@ function InfoBody() {
                                                 </p>
                                         </div>
 
-                                        <div className="friends" onClick={handleEntitiesClick} >
+                                        <div className="friends" onClick={() => {handleEntitiesClick("friends")}} >
                                                 <p className="value">
                                                         {selected.totalFriends}
                                                 </p>
@@ -58,7 +61,7 @@ function InfoBody() {
                                                 </p>
                                         </div>
 
-                                        <div className="groups" onClick={handleEntitiesClick} >
+                                        <div className="groups" onClick={() => {handleEntitiesClick("groups")}} >
                                                 <p className="value">
                                                         {selected.groups}
                                                 </p>

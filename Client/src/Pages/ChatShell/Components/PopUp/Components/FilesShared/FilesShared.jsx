@@ -1,14 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
-import useFriendsHook from '../../../../../../Hooks/useFriendsHook';
-import useGroupsHook from '../../../../../../Hooks/useGroupsHook';
 import UseSelectHook from '../../../../Hooks/UseSelectHook';
-import useSelectedTabStatusHook from '../../../../Hooks/useSelectedTabStatusHook';
-import './EntitiesStatus.css';
+import './FilesShared.css';
+import useSelectedFileHook from '../../../../Hooks/useSelectedFileHook';
 
 
-function Entity({ picture, name, extraInfo, action }) {
+function File({ picture, name, extraInfo, action }) {
         return (
-                <div className="entity">
+                <div className="file">
                         <p className="picture">
                                 <img src="www.dsyfsdhjlfashj.com" />
                         </p>
@@ -32,11 +30,11 @@ function Entity({ picture, name, extraInfo, action }) {
         );
 }
 
-function EntityLabel({ label, activeTab, handleTabClick }) {
+function FileLabel({ label, activeTab, handleTabClick }) {
         return (
                 <div 
-                        className={`${label.name.toLowerCase()} entity-labels ${activeTab.name === label.name ? "active" : null}`} 
-                        onClick={() => { handleTabClick(label) }} 
+                        className={`${label.name.toLowerCase()} file-labels ${activeTab.name === label.name.toLowerCase() ? "active" : null}`} 
+                        onClick={() => {handleTabClick(label)}} 
                 >
                         <p className="value">
                                 { label.value }
@@ -49,9 +47,27 @@ function EntityLabel({ label, activeTab, handleTabClick }) {
         );
 }
 
+const extractFileLabels = (files) => {
+        let newFiles = [];
+        let counter = 0;
+
+        Object.keys(files).forEach((file) => {
+                if (files[file]) {
+                        newFiles.push({
+                                _id: counter,
+                                name: `${file}`,
+                                value: files[file]
+                        });
+                        counter += 1;
+                }
+        });
+
+        return newFiles;
+};
+
 const findFile = (files, selected) => {
         for (let file of files) {
-                if (file.name.toLowerCase() === selected) {
+                if (file.name === selected) {
                         return file;
                 }
         }
@@ -59,32 +75,18 @@ const findFile = (files, selected) => {
         return null;
 };
 
-function EntitiesStatus() {
-        const { friends } = useFriendsHook();
-        const { groups } = useGroupsHook();
+function FilesShared() {
         const { selected } = UseSelectHook();
-        const { selectedTab } = useSelectedTabStatusHook();
+        const { selectedFile } = useSelectedFileHook();
         const status = "online";
-        const [activeTab, setActiveTab] = useState({_id: 0, name: "Mutual", value: selected.mutualFriends});
+        const [activeTab, setActiveTab] = useState({});
         const tabIndicatorRef = useRef(null);
-        const entityLabels = [
-                {
-                        _id: 0,
-                        name: "Mutual",
-                        value: selected.mutualFriends
-                },
-                {
-                        _id: 1,
-                        name: "Friends",
-                        value: selected.totalFriends
-                },
-                {
-                        _id: 2,
-                        name: "Groups",
-                        value: selected.groups
-                },
-        ];
-        const entities = { "mutual": friends, "friends": friends, "groups": groups };
+        const fileLabels = extractFileLabels(selected.filesShared);
+        // const files = { "mutual": friends, "friends": friends, "groups": groups };
+
+        useEffect(() => {
+                setActiveTab(findFile(fileLabels, selectedFile));
+        }, [selectedFile]);
 
         const countUnread = (chats) => {
                 let counter = 0;
@@ -97,10 +99,6 @@ function EntitiesStatus() {
                 return counter;
         };
 
-        useEffect(() => {
-                setActiveTab(findFile(entityLabels, selectedTab));
-        }, [selectedTab]);
-
         const handleTabClick = (tab) => {
                 setActiveTab(tab);
         };
@@ -110,14 +108,13 @@ function EntitiesStatus() {
                 
                 if (tabIndicator) {
                         const stepSize = activeTab._id * tabIndicator.offsetWidth;
-                        const gapSize = activeTab._id * 2;
+                        const gapSize = activeTab._id;
                         tabIndicator.style.transform = `translateX(calc(${stepSize}px + ${gapSize}vh))`;
                 }
         }, [activeTab]);
 
-
         return (
-                <div className="entities-status" onClick={(event) => { event.stopPropagation() }} >
+                <div className="files-shared" onClick={(event) => { event.stopPropagation() }} >
                         <div className="mini-profile">
                                 <p className="image">
                                         <img src="www.siusclhscjcks.com" />
@@ -135,25 +132,25 @@ function EntitiesStatus() {
                         </div>
 
                         <div className="status-bar">
-                                { entityLabels.map((label) => (
-                                        <EntityLabel key={label._id} label={label} activeTab={activeTab} handleTabClick={handleTabClick} />
+                                { fileLabels.map((label) => (
+                                        <FileLabel key={label._id} label={label} activeTab={activeTab} handleTabClick={handleTabClick} />
                                 )) }
 
                                 <p className="active-tab-indicator" ref={tabIndicatorRef} ></p>
                         </div>
 
-                        <div className="list">
-                                {entities[activeTab.name.toLowerCase()].map((entity) => (
-                                        <Entity
-                                                key={entity._id}
-                                                name={entity.username ? entity.username : entity.groupName}
-                                                extraInfo={entity.email ? entity.email : entity.members}
-                                                action={countUnread(entity.chatHistory)}
+                        {/* <div className="list">
+                                {files[activeTab.name].map((file) => (
+                                        <File
+                                                key={file._id}
+                                                name={file.username ? file.username : file.groupName}
+                                                extraInfo={file.email ? file.email : file.members}
+                                                action={countUnread(file.chatHistory)}
                                         />
                                 ))}
-                        </div>
+                        </div> */}
                 </div>
         );
 }
 
-export default EntitiesStatus;
+export default FilesShared;

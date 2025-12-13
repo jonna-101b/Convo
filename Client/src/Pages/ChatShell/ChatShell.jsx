@@ -3,6 +3,8 @@ import { GroupsContextProvider } from "../../Contexts/GroupsContext";
 import { SelectedChatContextProvider } from "./Contexts/SelectedChatContext";
 import { PopUpContextProvider } from "./Contexts/PopUpContext";
 import { InfoDisplayContextProvider } from "./Contexts/InfoDisplayContext";
+import { SelectedFileContextProvider } from "./Contexts/SelectedFileContext";
+import { SelectedTabStatusContextProvider } from "./Contexts/SelectedTabStatusContext";
 import SidePanel from "./Components/SidePanel/SidePanel";
 import ChatWindow from "./Components/ChatWindow/ChatWindow";
 import InfoPanel from "./Components/InfoPanel/InfoPanel";
@@ -17,15 +19,19 @@ function ChatShell() {
                                 <SelectedChatContextProvider>
                                         <PopUpContextProvider>
                                                 <InfoDisplayContextProvider>
-                                                        <div className="chat-shell">
-                                                                <SidePanel />
+                                                        <SelectedFileContextProvider>
+                                                                <SelectedTabStatusContextProvider>
+                                                                        <div className="chat-shell">
+                                                                                <SidePanel />
 
-                                                                <ChatWindow />
+                                                                                <ChatWindow />
 
-                                                                <InfoPanel />
+                                                                                <InfoPanel />
 
-                                                                <PopUp />
-                                                        </div>
+                                                                                <PopUp />
+                                                                        </div>
+                                                                </SelectedTabStatusContextProvider>
+                                                        </SelectedFileContextProvider>
                                                 </InfoDisplayContextProvider>
                                         </PopUpContextProvider>
                                 </SelectedChatContextProvider>
