@@ -27,6 +27,12 @@ function Profile() {
 
         return (
                 <div className="profile">
+                        <div className="title-tools">
+                                <p className="title">
+                                        Profile
+                                </p>
+                        </div>
+                        
                         <div className="top">
                                 <p className="profile-picture">
                                         <img src="www.dshjdskjdc.com" />

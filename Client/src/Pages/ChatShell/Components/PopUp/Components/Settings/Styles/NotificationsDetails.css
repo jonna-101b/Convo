@@ -1,11 +1,11 @@
-.chat-shell .pop-up .settings .main .appearance-details {
+.chat-shell .pop-up .settings .main .notifications-details {
         display: flex;
         flex-direction: column;
         gap: 2vh;
         width: 100%;
 }
 
-.chat-shell .pop-up .settings .main .appearance-details .title-tools {
+.chat-shell .pop-up .settings .main .notifications-details .title-tools {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -16,7 +16,7 @@
         position: relative;
 }
 
-.chat-shell .pop-up .settings .main .appearance-details .title-tools::after {
+.chat-shell .pop-up .settings .main .notifications-details .title-tools::after {
         content: "";
         display: grid;
         place-content: center;
@@ -28,7 +28,7 @@
         left: 0;
 }
 
-.chat-shell .pop-up .settings .main .appearance-details .title-tools .title {
+.chat-shell .pop-up .settings .main .notifications-details .title-tools .title {
         display: grid;
         place-content: center;
         font-size: var(--primary-font-size);
@@ -36,14 +36,14 @@
         color: var(--primary-font-color-light-mode);
 }
 
-.chat-shell .pop-up .settings .main .appearance-details .title-tools .tools {
+.chat-shell .pop-up .settings .main .notifications-details .title-tools .tools {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 1vh;
 }
 
-.chat-shell .pop-up .settings .main .appearance-details .title-tools .tools p {
+.chat-shell .pop-up .settings .main .notifications-details .title-tools .tools p {
         display: grid;
         place-content: center;
         border-radius: 50%;
@@ -53,16 +53,16 @@
         cursor: pointer;
 }
 
-.chat-shell .pop-up .settings .main .appearance-details .title-tools .tools p:focus,
-.chat-shell .pop-up .settings .main .appearance-details .title-tools .tools p:hover {
+.chat-shell .pop-up .settings .main .notifications-details .title-tools .tools p:focus,
+.chat-shell .pop-up .settings .main .notifications-details .title-tools .tools p:hover {
         background-color: var(--primary-hover-color-light-mode);
 }
 
-.chat-shell .pop-up .settings .main .appearance-details .title-tools .tools p img {
+.chat-shell .pop-up .settings .main .notifications-details .title-tools .tools p img {
         width: 3.25vh;
 }
 
-.chat-shell .pop-up .settings .main .appearance-details .appearance-detail {
+.chat-shell .pop-up .settings .main .notifications-details .notifications-detail {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -70,12 +70,12 @@
         padding-inline: 3vh;
 }
 
-.chat-shell .pop-up .settings .main .appearance-details .appearance-detail .label {
+.chat-shell .pop-up .settings .main .notifications-details .notifications-detail .label {
         font-size: var(--primary-font-size);
         color: var(--primary-font-color-light-mode);
 }
 
-.chat-shell .pop-up .settings .main .appearance-details .appearance-detail .select {
+.chat-shell .pop-up .settings .main .notifications-details .notifications-detail .select {
         display: grid;
         align-items: center;
         background-color: var(--primary-background-color-light-mode);
@@ -85,12 +85,12 @@
         cursor: pointer;
 }
 
-.chat-shell .pop-up .settings .main .appearance-details .appearance-detail .select .value {
+.chat-shell .pop-up .settings .main .notifications-details .notifications-detail .select .value {
         font-size: var(--tertiary-font-size);
         color: var(--primary-font-color-light-mode);
 }
 
-.chat-shell .pop-up .settings .main .appearance-details .appearance-detail .select .value.color {
+.chat-shell .pop-up .settings .main .notifications-details .notifications-detail .select .value.color {
         display: grid;
         place-content: center;
         border-radius: 50%;

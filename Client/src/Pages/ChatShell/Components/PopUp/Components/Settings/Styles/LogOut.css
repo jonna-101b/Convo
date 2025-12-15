@@ -1,0 +1,117 @@
+.chat-shell .pop-up .settings .main .log-out {
+        align-self: start;
+        display: flex;
+        flex-direction: column;
+        gap: 3vh;
+        background-color: transparent;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        width: 100%;
+        padding: 0;
+        backdrop-filter: none;
+}
+
+.chat-shell .pop-up .settings .main .log-out .title-tools {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-image: linear-gradient(to right, var(--tertiary-hover-color-light-mode), transparent);
+        padding: 2vh 3vh;
+        width: 100%;
+        height: fit-content;
+        position: relative;
+}
+
+.chat-shell .pop-up .settings .main .log-out .title-tools::after {
+        content: "";
+        display: grid;
+        place-content: center;
+        background-color: var(--negative-background-color);
+        width: 1vh;
+        height: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+}
+
+.chat-shell .pop-up .settings .main .log-out .title-tools .title {
+        display: grid;
+        place-content: center start;
+        font-size: var(--primary-font-size);
+        font-weight: var(--primary-font-weight);
+        color: var(--primary-font-color-light-mode);
+}
+
+.chat-shell .pop-up .settings .main .log-out .title-tools .tools {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1vh;
+}
+
+.chat-shell .pop-up .settings .main .log-out .title-tools .tools p {
+        display: grid;
+        place-content: center;
+        border-radius: 50%;
+        width: 5.5vh;
+        height: 5.5vh;
+        transition: background-color 0.15s linear;
+        cursor: pointer;
+}
+
+.chat-shell .pop-up .settings .main .log-out .title-tools .tools p:focus,
+.chat-shell .pop-up .settings .main .log-out .title-tools .tools p:hover {
+        background-color: var(--primary-hover-color-light-mode);
+}
+
+.chat-shell .pop-up .settings .main .log-out .title-tools .tools p img {
+        width: 3.25vh;
+}
+
+.chat-shell .pop-up .settings .main .log-out .notice {
+        display: flex;
+        flex-direction: column;
+        gap: 3vh;
+        padding-inline: 3vh;
+}
+
+.chat-shell .pop-up .settings .main .log-out .notice .message {
+        display: grid;
+        font-size: var(--primary-font-size);
+        color: var(--primary-font-color-light-mode);
+        width: 100%;
+}
+
+.chat-shell .pop-up .settings .main .log-out .notice .actions {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 2vh;
+        width: 100%;
+}
+
+.chat-shell .pop-up .settings .main .log-out .notice .actions p {
+        display: grid;
+        color: var(--primary-font-color-light-mode);
+        border-radius: var(--primary-border-radius);
+        width: fit-content;
+        padding: 1vh 3vh;
+        transition: background-linear 0.15s linear;
+        cursor: pointer;
+}
+
+.chat-shell .pop-up .settings .main .log-out .notice .actions .yes {
+        background-color: var(--system-accent-color);
+        color: var(--tertiary-font-color-light-mode);
+}
+
+.chat-shell .pop-up .settings .main .log-out .notice .actions p:focus,
+.chat-shell .pop-up .settings .main .log-out .notice .actions p:hover {
+        background-color: var(--primary-hover-color-light-mode);
+}
+
+.chat-shell .pop-up .settings .main .log-out .notice .actions .yes:focus,
+.chat-shell .pop-up .settings .main .log-out .notice .actions .yes:hover {
+        background-color: var(--system-accent-dark-color);
+}

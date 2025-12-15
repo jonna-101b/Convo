@@ -52,6 +52,14 @@
         position: relative;
 }
 
+.chat-shell .pop-up .settings .setting-sections .section.log-out {
+        align-self: start;
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+        backdrop-filter: none;
+}
+
 .chat-shell .pop-up .settings .setting-sections .section::after {
         content: "";
         display: grid;
@@ -69,7 +77,7 @@
         border-bottom-left-radius: 0;
 }
 
-.chat-shell .pop-up .settings .setting-sections .section.active:last-child {
+.chat-shell .pop-up .settings .setting-sections .section.active.log-out {
         background-color: var(--tertiary-background-color-light-mode);
 }
 
@@ -77,7 +85,7 @@
         background-color: var(--system-accent-color);
 }
 
-.chat-shell .pop-up .settings .setting-sections .section.active:last-child:after {
+.chat-shell .pop-up .settings .setting-sections .section.active.log-out:after {
         background-color: var(--negative-background-color);
 }
 
@@ -91,8 +99,8 @@
         background-color: var(--system-accent-dimmed-color);
 }
 
-.chat-shell .pop-up .settings .setting-sections .section:last-child:focus,
-.chat-shell .pop-up .settings .setting-sections .section:last-child:hover {
+.chat-shell .pop-up .settings .setting-sections .section.log-out:focus,
+.chat-shell .pop-up .settings .setting-sections .section.log-out:hover {
         background-color: var(--tertiary-hover-color-light-mode);
 }
 
@@ -117,7 +125,7 @@
         color: var(--primary-font-color-light-mode);
 }
 
-.chat-shell .pop-up .settings .setting-sections .section:last-child .icon-name .name {
+.chat-shell .pop-up .settings .setting-sections .section.log-out .icon-name .name {
         color: var(--negative-font-color);
 }
 
@@ -125,5 +133,5 @@
         flex-grow: 1;
         display: grid;
         border-left: 1px solid var(--tertiary-background-color-light-mode);
-        padding: 2vh 4vh;
+        padding-inline: 4vh;
 }

@@ -1,7 +1,8 @@
-import { useRef, useState } from 'react';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import Profile from './Components/Profile';
+import PrivacySecurityDetails from './Components/PrivacySecurityDetails';
 import AppearanceDetails from './Components/AppearanceDetails';
+import LogOut from './Components/LogOut';
 import UserLightIcon from '../../../../../../assets/Icons/ChatShell/PopUp/user-light.png';
 import UserDarkIcon from '../../../../../../assets/Icons/ChatShell/PopUp/user-dark.png';
 import AppearanceLightIcon from '../../../../../../assets/Icons/ChatShell/PopUp/pallete-light.png';
@@ -14,11 +15,12 @@ import LogOutIcon from '../../../../../../assets/Icons/ChatShell/PopUp/logout.pn
 import DropLightIcon from '../../../../../../assets/Icons/ChatShell/PopUp/drop-light.png';
 import DropDarkIcon from '../../../../../../assets/Icons/ChatShell/PopUp/drop-dark.png';
 import './Settings.css';
+import NotificationsDetails from './Components/NotificationsDetails';
 
 
 function Section({ section }) {
         return (
-                <NavLink className={({ isActive }) => isActive ? "section active" : "section"} to={section.path} >
+                <NavLink className={({ isActive }) => isActive ? `section active ${section.path}` : `section ${section.path}`} to={section.path} >
                         <div className="icon-name">
                                 <p className="icon">
                                         <img src={section.icon} alt={`${section.name} icon`} />
@@ -39,35 +41,30 @@ function Settings() {
                         name: "Profile",
                         path: "profile",
                         icon: UserLightIcon,
-                        detail: <Profile />
                 },
                 {
                         _id: 1,
                         name: "Appearance",
                         path: "appearance",
                         icon: AppearanceLightIcon,
-                        detail: <AppearanceDetails />
                 },
                 {
                         _id: 2,
                         name: "Notifications",
                         path: "notifications",
                         icon: NotificationsLightIcon,
-                        detail: <AppearanceDetails />
                 },
                 {
                         _id: 3,
                         name: "Privacy & Security",
                         path: "privacy-security",
                         icon: LockLightIcon,
-                        detail: <AppearanceDetails />
                 },
                 {
                         _id: 4,
                         name: "Log out",
                         path: "log-out",
                         icon: LogOutIcon,
-                        detail: <AppearanceDetails />
                 }
         ];
 
@@ -85,9 +82,11 @@ function Settings() {
 
                         <div className="main">
                                 <Routes>
-                                        <Route index element={<Profile />} />
                                         <Route path='profile' element={<Profile />} />
                                         <Route path='appearance' element={<AppearanceDetails />} />
+                                        <Route path='notifications' element={<NotificationsDetails />} />
+                                        <Route path='privacy-security' element={<PrivacySecurityDetails />} />
+                                        <Route path='log-out' element={<LogOut />} />
                                 </Routes>
                         </div>
                 </div>

@@ -8,9 +8,12 @@ import SearchDarkIcon from '../../../../../assets/Icons/ChatShell/SidePanel/sear
 import SettingsLightIcon from '../../../../../assets/Icons/ChatShell/SidePanel/settings-light.png';
 import SettingsDarkIcon from '../../../../../assets/Icons/ChatShell/SidePanel/settings-dark.png';
 import '../Styles/PanelHeader.css';
+import { useNavigate } from 'react-router-dom';
 
 function PanelHeader() {
         const { setLabel } = usePopUpHook();
+        const navigate = useNavigate();
+        
 
         const handleRadarDisplay = () => {
                 setLabel("social radar");
@@ -22,6 +25,7 @@ function PanelHeader() {
 
         const handleSettingsDisplay = () => {
                 setLabel("settings");
+                navigate("/profile")
         };
 
         return (

@@ -1,6 +1,6 @@
 const profile = {
         _id: "f1a92c92",
-        nickname: "Jonna",
+        nickName: "Jonna",
         username: "jonna-101",
         email: "Jonna@gmail.com",
         bio: "He is not seatin' there shakin' his head",

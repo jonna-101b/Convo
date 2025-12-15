@@ -19,7 +19,6 @@ function AppearanceDetails() {
                                 </p>
 
                                 <div className="select">
-
                                         {profile.themeMode}
                                 </div>
                         </div>
