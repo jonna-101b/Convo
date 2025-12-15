@@ -20,6 +20,10 @@ function PanelHeader() {
                 setLabel("search panel");
         };
 
+        const handleSettingsDisplay = () => {
+                setLabel("settings");
+        };
+
         return (
                 <div className="panel-header">
                         <p className="logo">
@@ -35,7 +39,7 @@ function PanelHeader() {
                                         <img src={SearchLightIcon} alt="Search light icon" />
                                 </p>
 
-                                <p className="settings">
+                                <p className="settings" onClick={handleSettingsDisplay} >
                                         <img src={SettingsLightIcon} alt="Search dark icon" />
                                 </p>
                         </div>

@@ -1,0 +1,83 @@
+.chat-shell .pop-up .settings .main .appearance-details {
+        display: flex;
+        flex-direction: column;
+        gap: 2vh;
+        width: 100%;
+}
+
+.chat-shell .pop-up .settings .main .appearance-details .title-tools {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: fit-content;
+}
+
+.chat-shell .pop-up .settings .main .appearance-details .title-tools .title {
+        display: grid;
+        place-content: center;
+        font-size: var(--primary-font-size);
+        font-weight: var(--primary-font-weight);
+        color: var(--primary-font-color-light-mode);
+}
+
+.chat-shell .pop-up .settings .main .appearance-details .title-tools .tools {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1vh;
+}
+
+.chat-shell .pop-up .settings .main .appearance-details .title-tools .tools p {
+        display: grid;
+        place-content: center;
+        border-radius: 50%;
+        width: 5.5vh;
+        height: 5.5vh;
+        transition: background-color 0.15s linear;
+        cursor: pointer;
+}
+
+.chat-shell .pop-up .settings .main .appearance-details .title-tools .tools p:focus,
+.chat-shell .pop-up .settings .main .appearance-details .title-tools .tools p:hover {
+        background-color: var(--primary-hover-color-light-mode);
+}
+
+.chat-shell .pop-up .settings .main .appearance-details .title-tools .tools p img {
+        width: 3.25vh;
+}
+
+.chat-shell .pop-up .settings .main .appearance-details .appearance-detail {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 5vh;
+}
+
+.chat-shell .pop-up .settings .main .appearance-details .appearance-detail .label {
+        font-size: var(--secondary-font-size);
+        font-weight: var(--primary-font-weight);
+        color: var(--secondary-font-color-light-mode);
+}
+
+.chat-shell .pop-up .settings .main .appearance-details .appearance-detail .select {
+        display: grid;
+        align-items: center;
+        background-color: var(--primary-background-color-light-mode);
+        border: 1px solid var(--tertiary-background-color-light-mode);
+        border-radius: var(--primary-border-radius);
+        padding: 1vh 2vh;
+}
+
+.chat-shell .pop-up .settings .main .appearance-details .appearance-detail .select .value {
+        font-size: var(--tertiary-font-size);
+        color: var(--primary-font-color-light-mode);
+}
+
+.chat-shell .pop-up .settings .main .appearance-details .appearance-detail .select .value.color {
+        display: grid;
+        place-content: center;
+        border-radius: 50%;
+        width: 3vh;
+        height: 3vh;
+}

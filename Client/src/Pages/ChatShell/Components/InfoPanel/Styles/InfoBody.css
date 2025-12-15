@@ -56,8 +56,8 @@
 
 .chat-shell .info-panel .info-body .top .mutual-friends-groups {
         display: flex;
-        justify-content: space-between;
-        gap: 2vh;
+        justify-content: center;
+        gap: 8vh;
         width: 100%;
 }
 

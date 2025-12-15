@@ -1,3 +1,4 @@
+import { ProfileContextProvider } from "../../Contexts/ProfileContext";
 import { FriendsContextProvider } from "../../Contexts/FriendsContext";
 import { GroupsContextProvider } from "../../Contexts/GroupsContext";
 import { SelectedChatContextProvider } from "./Contexts/SelectedChatContext";
@@ -14,29 +15,31 @@ import './ChatShell.css';
 
 function ChatShell() {
         return (
-                <FriendsContextProvider>
-                        <GroupsContextProvider>
-                                <SelectedChatContextProvider>
-                                        <PopUpContextProvider>
-                                                <InfoDisplayContextProvider>
-                                                        <SelectedFileContextProvider>
-                                                                <SelectedTabStatusContextProvider>
-                                                                        <div className="chat-shell">
-                                                                                <SidePanel />
+                <ProfileContextProvider>
+                        <FriendsContextProvider>
+                                <GroupsContextProvider>
+                                        <SelectedChatContextProvider>
+                                                <PopUpContextProvider>
+                                                        <InfoDisplayContextProvider>
+                                                                <SelectedFileContextProvider>
+                                                                        <SelectedTabStatusContextProvider>
+                                                                                <div className="chat-shell">
+                                                                                        <SidePanel />
 
-                                                                                <ChatWindow />
+                                                                                        <ChatWindow />
 
-                                                                                <InfoPanel />
+                                                                                        <InfoPanel />
 
-                                                                                <PopUp />
-                                                                        </div>
-                                                                </SelectedTabStatusContextProvider>
-                                                        </SelectedFileContextProvider>
-                                                </InfoDisplayContextProvider>
-                                        </PopUpContextProvider>
-                                </SelectedChatContextProvider>
-                        </GroupsContextProvider>
-                </FriendsContextProvider>
+                                                                                        <PopUp />
+                                                                                </div>
+                                                                        </SelectedTabStatusContextProvider>
+                                                                </SelectedFileContextProvider>
+                                                        </InfoDisplayContextProvider>
+                                                </PopUpContextProvider>
+                                        </SelectedChatContextProvider>
+                                </GroupsContextProvider>
+                        </FriendsContextProvider>
+                </ProfileContextProvider>
         );
 }
 
