@@ -1,4 +1,4 @@
-import friends from '../../../../../Mock/Chats';
+import useFriendsHook from '../../../../../Hooks/useFriendsHook';
 import '../Styles/ChatSuggestions.css';
 
 
@@ -20,7 +20,9 @@ function Suggestion({ suggestion }) {
         );
 }
 
-function ChatSuggestions() {              
+function ChatSuggestions() {  
+        const { friends } = useFriendsHook();
+
         return (
                 <div className="chat-suggestions">
                         <div className="text">

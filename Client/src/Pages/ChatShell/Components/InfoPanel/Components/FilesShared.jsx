@@ -12,20 +12,22 @@ import LinkDarkIcon from '../../../../../assets/Icons/ChatShell/InfoPanel/link-d
 import VoiceLightIcon from '../../../../../assets/Icons/ChatShell/InfoPanel/mic-light.png';
 import VoiceDarkIcon from '../../../../../assets/Icons/ChatShell/InfoPanel/mic-dark.png';
 import '../Styles/FilesShared.css';
+import usePopUpHook from '../../../Hooks/UsePopUpHook';
+import useSelectedFileHook from '../../../Hooks/useSelectedFileHook';
 
 
-const File = ({ fileName, value }) => {
+const File = ({ fileName, value, handleClick }) => {
         const fileIcon = {
                 photos: PhotosLightIcon,
                 videos: VideoLightIcon,
                 audios: AudioLightIcon,
                 documents: DocumentLightIcon,
                 links: LinkLightIcon,
-                voiceMessages: VoiceLightIcon
+                voice: VoiceLightIcon
         };
 
         return (
-                <div className={`file ${value ? null : "empty"}`}>
+                <div className={`file ${value ? null : "empty"}`} onClick={() => {handleClick(fileName)}} >
                         <p className="icon">
                                 <img src={ fileIcon[fileName] } />
                         </p>
@@ -43,6 +45,13 @@ const isEmpty = (obj) => {
 
 function FilesShared() {
         const { selected } = UseSelectHook();
+        const { setLabel } = usePopUpHook();
+        const { setSelectedFile } = useSelectedFileHook();
+
+        const handleClick = (fileName) => {
+                setLabel("files shared");
+                setSelectedFile(fileName);
+        };
 
         if (isEmpty(selected)) {
                 return null;
@@ -55,7 +64,7 @@ function FilesShared() {
                         </p>
 
                         { Object.keys(selected.filesShared).map((fileName, index) => (
-                                <File key={index} fileName={fileName} value={selected.filesShared[fileName]} />
+                                <File key={index} fileName={fileName} value={selected.filesShared[fileName]} handleClick={handleClick} />
                         )) }
                 </div>
         );

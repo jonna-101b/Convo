@@ -1,0 +1,129 @@
+.chat-shell .pop-up .settings {
+        place-self: center;
+        display: flex;
+        gap: 4vh;
+        font-size: var(--secondary-font-size);
+        background-color: var(--glassy-background-color-light-mode);
+        border: 1px solid var(--tertiary-background-color-light-mode);
+        border-radius: var(--primary-border-radius);
+        box-shadow: 0 0 5vh var(--background-shadow-color-light-mode);
+        width: 52.5vw; 
+        height: 80vh; 
+        padding: 4vh 2vh;
+        overflow-y: auto;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        position: relative;
+}
+
+.chat-shell .pop-up .settings .setting-sections {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        gap: 1vh;
+        width: fit-content;
+        height: 100%;
+        padding-left: 2vh;
+        transition: background-color 0.15s linear;
+        cursor: pointer;
+}
+
+.chat-shell .pop-up .settings .setting-sections .title {
+        display: grid;
+        place-content: center start;
+        font-size: var(--quaternary-font-size);
+        font-weight: var(--primary-font-weight);
+        color: var(--primary-font-color-light-mode);
+        width: 100%;
+        padding-left: 2vh;
+        padding-block: 0 2vh;
+}
+
+.chat-shell .pop-up .settings .setting-sections .section {
+        display: grid;
+        justify-content: start;
+        gap: 1vh;
+        text-decoration: none;
+        border-radius: var(--tertiary-border-radius);
+        width: 100%;
+        padding: 1vh 2vh;
+        transition: background-color 0.15s linear;
+        cursor: pointer;
+        position: relative;
+}
+
+.chat-shell .pop-up .settings .setting-sections .section::after {
+        content: "";
+        display: grid;
+        width: 0.75vh;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: background-color 0.15s linear;
+}
+
+.chat-shell .pop-up .settings .setting-sections .section.active {
+        background-color: var(--system-accent-dimmed-color);
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+}
+
+.chat-shell .pop-up .settings .setting-sections .section.active:last-child {
+        background-color: var(--tertiary-background-color-light-mode);
+}
+
+.chat-shell .pop-up .settings .setting-sections .section.active::after {
+        background-color: var(--system-accent-color);
+}
+
+.chat-shell .pop-up .settings .setting-sections .section.active:last-child:after {
+        background-color: var(--negative-background-color);
+}
+
+.chat-shell .pop-up .settings .setting-sections .section:focus,
+.chat-shell .pop-up .settings .setting-sections .section:hover {
+        background-color: var(--primary-hover-color-light-mode);
+}
+
+.chat-shell .pop-up .settings .setting-sections .section.active:focus,
+.chat-shell .pop-up .settings .setting-sections .section.active:hover {
+        background-color: var(--system-accent-dimmed-color);
+}
+
+.chat-shell .pop-up .settings .setting-sections .section:last-child:focus,
+.chat-shell .pop-up .settings .setting-sections .section:last-child:hover {
+        background-color: var(--tertiary-hover-color-light-mode);
+}
+
+.chat-shell .pop-up .settings .setting-sections .section .icon-name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2vh;
+}
+
+.chat-shell .pop-up .settings .setting-sections .section .icon-name .icon {
+        display: grid;
+        place-content: center;
+}
+
+.chat-shell .pop-up .settings .setting-sections .section .icon-name .icon img {
+        width: 2.75vh;
+}
+
+.chat-shell .pop-up .settings .setting-sections .section .icon-name .name {
+        font-size: var(--secondary-font-size);
+        color: var(--primary-font-color-light-mode);
+}
+
+.chat-shell .pop-up .settings .setting-sections .section:last-child .icon-name .name {
+        color: var(--negative-font-color);
+}
+
+.chat-shell .pop-up .settings .main {
+        flex-grow: 1;
+        display: grid;
+        border-left: 1px solid var(--tertiary-background-color-light-mode);
+        padding: 2vh 4vh;
+}

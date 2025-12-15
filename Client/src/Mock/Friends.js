@@ -14,7 +14,7 @@ const friends = [
                         audios: 2,
                         documents: 3,
                         links: 7,
-                        voiceMessages: 9
+                        voice: 9
                 },
                 chatHistory: [
                         {
@@ -97,7 +97,7 @@ const friends = [
                         audios: 0,
                         documents: 1,
                         links: 12,
-                        voiceMessages: 4
+                        voice: 4
                 },
                 chatHistory: [
                         {
@@ -171,7 +171,7 @@ const friends = [
                         audios: 6,
                         documents: 0,
                         links: 5,
-                        voiceMessages: 12
+                        voice: 12
                 },
                 chatHistory: [
                         {
@@ -254,7 +254,7 @@ const friends = [
                         audios: 1,
                         documents: 2,
                         links: 9,
-                        voiceMessages: 3
+                        voice: 3
                 },
                 chatHistory: [
                         {
@@ -328,7 +328,7 @@ const friends = [
                         audios: 0,
                         documents: 4,
                         links: 10,
-                        voiceMessages: 6
+                        voice: 6
                 },
                 chatHistory: [
                         {
@@ -411,7 +411,7 @@ const friends = [
                         audios: 0,
                         documents: 8,
                         links: 20,
-                        voiceMessages: 1
+                        voice: 1
                 },
                 chatHistory: [
                         {
@@ -494,7 +494,7 @@ const friends = [
                         audios: 2,
                         documents: 1,
                         links: 3,
-                        voiceMessages: 7
+                        voice: 7
                 },
                 chatHistory: [
                         {
@@ -568,7 +568,7 @@ const friends = [
                         audios: 0,
                         documents: 11,
                         links: 4,
-                        voiceMessages: 0
+                        voice: 0
                 },
                 chatHistory: [
                         {
@@ -633,7 +633,7 @@ const friends = [
                         audios: 5,
                         documents: 1,
                         links: 15,
-                        voiceMessages: 8
+                        voice: 8
                 },
                 chatHistory: [
                         {
@@ -698,7 +698,7 @@ const friends = [
                         audios: 3,
                         documents: 0,
                         links: 0,
-                        voiceMessages: 12
+                        voice: 12
                 },
                 chatHistory: [
                         {

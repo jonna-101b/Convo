@@ -1,19 +1,18 @@
-import UseSelectHook from '../../../Hooks/UseSelectHook';
-import useSelectedTabStatusHook from '../../../Hooks/useSelectedTabStatusHook';
-import AtIcon from '../../../../../assets/Icons/ChatShell/InfoPanel/at.png';
-import MailIcon from '../../../../../assets/Icons/ChatShell/InfoPanel/mail.png';
-import QuoteIcon from '../../../../../assets/Icons/ChatShell/InfoPanel/quote.png';
-import NotificationsIcon from '../../../../../assets/Icons/ChatShell/InfoPanel/notification.png';
-import usePopUpHook from '../../../Hooks/UsePopUpHook';
-import '../Styles/InfoBody.css';
+import useProfileHook from '../../../../../../../Hooks/useProfileHook';
+import useSelectedTabStatusHook from '../../../../../Hooks/useSelectedTabStatusHook';
+import AtIcon from '../../../../../../../assets/Icons/ChatShell/PopUp/at.png';
+import MailIcon from '../../../../../../../assets/Icons/ChatShell/PopUp/mail.png';
+import QuoteIcon from '../../../../../../../assets/Icons/ChatShell/PopUp/quote.png';
+import usePopUpHook from '../../../../../Hooks/UsePopUpHook';
+import '../Styles/Profile.css';
 
 
 const isEmpty = (obj) => {
         return Object.entries(obj).length === 0;
 };
 
-function InfoBody() {
-        const { selected } = UseSelectHook();
+function Profile() {
+        const { profile } = useProfileHook();
         const { setLabel } = usePopUpHook();
         const { setSelectedTab } = useSelectedTabStatusHook();
 
@@ -22,19 +21,19 @@ function InfoBody() {
                 setSelectedTab(tabName);
         };
 
-        if (isEmpty(selected)) {
+        if (isEmpty(profile)) {
                 return null;
         }
 
         return (
-                <div className="info-body">
+                <div className="profile">
                         <div className="top">
                                 <p className="profile-picture">
                                         <img src="www.dshjdskjdc.com" />
                                 </p>
 
                                 <p className="username">
-                                        {selected.username}
+                                        {profile.nickName}
                                 </p>
 
                                 <p className="status">
@@ -44,99 +43,81 @@ function InfoBody() {
                                 <div className="mutual-friends-groups">
                                         <div className="mutual"  onClick={() => {handleEntitiesClick("mutual")}} >
                                                 <p className="value">
-                                                        {selected.mutualFriends}
+                                                        {profile.archived}
                                                 </p>
 
-                                                <p className="title">
+                                                <p className="label">
                                                         Mutual
                                                 </p>
                                         </div>
 
                                         <div className="friends" onClick={() => {handleEntitiesClick("friends")}} >
                                                 <p className="value">
-                                                        {selected.totalFriends}
+                                                        {profile.totalFriends}
                                                 </p>
 
-                                                <p className="title">
+                                                <p className="label">
                                                         Friends
                                                 </p>
                                         </div>
 
                                         <div className="groups" onClick={() => {handleEntitiesClick("groups")}} >
                                                 <p className="value">
-                                                        {selected.groups}
+                                                        {profile.groups}
                                                 </p>
 
-                                                <p className="title">
+                                                <p className="label">
                                                         Groups
                                                 </p>
                                         </div>
                                 </div>
                         </div>
 
-                        <div className="middle">
-                                <div className="username middle-element">
+                        <div className="bottom">
+                                <div className="username bottom-element">
                                         <p className="icon">
-                                                <img src={AtIcon} alt="Mail icon" />
+                                                <img src={AtIcon} alt="At icon" />
                                         </p>
 
                                         <div className="details">
                                                 <p className="value">
-                                                        {selected.username}
+                                                        {profile.username}
                                                 </p>
 
-                                                <p className="title">
+                                                <p className="label">
                                                         Username
                                                 </p>
                                         </div>
                                 </div>
 
-                                <div className="email middle-element">
+                                <div className="email bottom-element">
                                         <p className="icon">
                                                 <img src={MailIcon} alt="Mail icon" />
                                         </p>
 
                                         <div className="details">
                                                 <p className="value">
-                                                        {selected.email}
+                                                        {profile.email}
                                                 </p>
 
-                                                <p className="title">
+                                                <p className="label">
                                                         Email
                                                 </p>
                                         </div>
                                 </div>
 
-                                <div className="bio middle-element">
+                                <div className="bio bottom-element">
                                         <p className="icon">
                                                 <img src={QuoteIcon} alt="Quotation icon" />
                                         </p>
 
                                         <div className="details">
                                                 <p className="value">
-                                                        {selected.bio}
+                                                        {profile.bio}
                                                 </p>
 
-                                                <p className="title">
+                                                <p className="label">
                                                         Bio
-                                                </p>
-                                        </div>
-                                </div>
-                        </div>
-
-                        <div className="bottom">
-                                <div className="notifications bottom-element ">
-                                        <p className="icon">
-                                                <img src={NotificationsIcon} alt="Notification icon" />
-                                        </p>
-
-                                        <div className="details">
-                                                <p className="title">
-                                                        Notifications
-                                                </p>
-
-                                                <p className={`value ${selected.notifications ? "on" : null}`}>
-                                                        <span className="ball"></span>
                                                 </p>
                                         </div>
                                 </div>
@@ -144,4 +125,4 @@ function InfoBody() {
                 </div>
         );
 }
-export default InfoBody;
+export default Profile;
