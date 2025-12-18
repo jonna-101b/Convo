@@ -1,4 +1,6 @@
 import { useRef, useState } from 'react';
+import EmojiPicker from "emoji-picker-react";
+import useEmojiDisplayHook from '../../../../../Hooks/useEmojiDisplayHook';
 import ClipIcon from '../../../../../../../assets/Icons/ChatShell/ChatWindow/clip.png';
 import ClipLightIcon from '../../../../../../../assets/Icons/ChatShell/ChatWindow/clip-hover-light.png';
 import ClipDarkIcon from '../../../../../../../assets/Icons/ChatShell/ChatWindow/clip-hover-dark.png';
@@ -18,12 +20,25 @@ import SendIcon from '../../../../../../../assets/Icons/ChatShell/ChatWindow/sen
 import '../Styles/ChatToolbar.css';
 
 
+function EmojiSection({ setInput }) {
+        return (
+                <div className="emoji-section" onClick={(event) => {event.stopPropagation()}} >
+                        <EmojiPicker onEmojiClick={(emojiData) => {setInput(prev => prev + emojiData.emoji)}} />
+                </div>
+        );
+}
+
 function ChatToolbar() {
         const [ input, setInput ] = useState("");
+        const { display, setDisplay } = useEmojiDisplayHook();
         const textareaRef = useRef(null);
 
-        const handleInput = (event) => {
-                const message = event.target.value;
+        const handleEmojiDisplay = (event) => {
+                event.stopPropagation();
+                setDisplay(true);
+        };
+        
+        const handleInput = (message) => {
                 setInput(message);
 
                 const textarea = textareaRef.current;
@@ -53,12 +68,12 @@ function ChatToolbar() {
                                         placeholder="Type something..." 
                                         ref={textareaRef} 
                                         value={input}
-                                        onChange={handleInput}
+                                        onChange={(event) => {handleInput(event.target.value)}}
                                 >
                                 </textarea>
                         </p>
 
-                        <p className="emoji click">
+                        <p className="emoji click" onClick={handleEmojiDisplay} >
                                 <img src={EmojiIcon} alt="Emoji icon" />
                                 <img src={EmojiLightIcon} alt="Emoji icon" className="hover" />
                         </p>
@@ -71,6 +86,8 @@ function ChatToolbar() {
                         <p className={`send ${ input ? "active" : null }`}>
                                 <img src={SendIcon} alt="Send icon" />
                         </p>
+
+                        { display ? <EmojiSection setInput={setInput} /> : null }
                 </div>
         );
 }

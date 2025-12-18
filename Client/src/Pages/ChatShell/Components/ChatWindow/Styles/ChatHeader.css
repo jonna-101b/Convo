@@ -44,8 +44,10 @@
 }
 
 .chat-shell .chat-window .chat-header .mini-profile .details .status {
+        font-family: var(--primary-font-family);
         font-size: var(--secondary-font-size);
         color: var(--system-accent-color);
+        line-height: 1.5;
 }
 
 .chat-shell .chat-window .chat-header .tools {

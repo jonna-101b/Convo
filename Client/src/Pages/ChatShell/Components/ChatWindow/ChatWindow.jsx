@@ -1,3 +1,4 @@
+import useEmojiDisplayHook from '../../Hooks/useEmojiDisplayHook';
 import UseSelectHook from '../../Hooks/UseSelectHook';
 import ChatHeader from './Components/ChatHeader';
 import ChatBody from './Components/ChatBody/ChatBody';
@@ -10,9 +11,14 @@ const isEmpty = (obj) => {
 
 function  ChatWindow() {
         const { selected } = UseSelectHook();
+        const { setDisplay } = useEmojiDisplayHook();
+
+        const handleClick = () => {
+                setDisplay(false);
+        };
 
         return (
-                <div className="chat-window" >
+                <div className="chat-window" onClick={handleClick} >
                         { isEmpty(selected) ?
                                 null
                                 :

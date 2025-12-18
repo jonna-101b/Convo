@@ -11,6 +11,7 @@ import ChatWindow from "./Components/ChatWindow/ChatWindow";
 import InfoPanel from "./Components/InfoPanel/InfoPanel";
 import PopUp from "./Components/PopUp/PopUp";
 import './ChatShell.css';
+import { EmojiDisplayContextProvider } from "./Contexts/EmojiDisplayContext";
 
 
 function ChatShell() {
@@ -23,15 +24,17 @@ function ChatShell() {
                                                         <InfoDisplayContextProvider>
                                                                 <SelectedFileContextProvider>
                                                                         <SelectedTabStatusContextProvider>
-                                                                                <div className="chat-shell">
-                                                                                        <SidePanel />
+                                                                                <EmojiDisplayContextProvider>
+                                                                                        <div className="chat-shell">
+                                                                                                <SidePanel />
 
-                                                                                        <ChatWindow />
+                                                                                                <ChatWindow />
 
-                                                                                        <InfoPanel />
+                                                                                                <InfoPanel />
 
-                                                                                        <PopUp />
-                                                                                </div>
+                                                                                                <PopUp />
+                                                                                        </div>
+                                                                                </EmojiDisplayContextProvider>
                                                                         </SelectedTabStatusContextProvider>
                                                                 </SelectedFileContextProvider>
                                                         </InfoDisplayContextProvider>
