@@ -1,94 +1,23 @@
-.welcome .about {
-        display: grid;
-        grid-template-columns: 35vw 1fr;
-        gap: 5vh;
-        padding-inline: 10vh;
+.about {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.welcome .about .image-headlines {
-        display: grid;
-        place-content: center;
-        gap: 2vh;
+.about h1 {
+  font-size: 2.5rem;
+  color: var(--system-accent-color);
+  margin-bottom: 2rem;
 }
 
-.welcome .about .image-headlines .image {
-        display: grid;
-        place-content: center;
-}
-
-.welcome .about .image-headlines .image img {
-        width: 64vh;
-}
-
-.welcome .about .image-headlines .headlines {
-        display: grid;
-        place-content: center;
-        gap: 2vh;
-}
-
-.welcome .about .image-headlines .headlines .main {
-        display: grid;
-        place-content: center;
-        font-size:  var(--system-max-font-size);
-        font-weight: var(--secondary-font-weight);
-        color: var(--primary-font-color-light-mode);
-        text-align: center;
-}
-
-.welcome .about .image-headlines .headlines .sub {
-        place-self: center;
-        display: grid;
-        place-content: center;
-        font-size:  var(--primary-font-size);
-        font-weight: var(--primary-font-weight);
-        color: var(--primary-font-color-light-mode);
-        text-align: center;
-        width: 80%;
-}
-
-
-.welcome .about .descriptions {
-        display: grid;
-        place-content: center;
-        gap: 8vh;
-}
-
-.welcome .about .descriptions .detail {
-        display: grid;
-        gap: 2vh;
-        padding-left: 4vh;
-        position: relative;
-}
-
-.welcome .about .descriptions .detail::before {
-        content: "";
-        display: grid;
-        background-color: var(--primary-font-color-light-mode);
-        border-radius: 10vh;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 4px;
-        height: 100%;
-}
-
-.welcome .about .descriptions .detail .title {
-        font-size: var(--secondary-font-size);
-        font-weight: var(--primary-font-weight);
-        color: var(--primary-font-color-light-mode);
-}
-
-.welcome .about .descriptions .detail .description {
-        font-size: var(--tertiary-font-size);
-        color: var(--primary-font-color-light-mode);
-}
-
-.welcome .about .descriptions .detail .point {
-        font-size: var(--tertiary-font-size);
-        color: var(--primary-font-color-light-mode);
-        list-style-type: disc;
-}
-
-.welcome .about .descriptions .detail .point .sub-title {
-        font-weight: var(--primary-font-weight);
+.about p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--primary-font-color-light-mode);
+  margin-bottom: 1rem;
 }

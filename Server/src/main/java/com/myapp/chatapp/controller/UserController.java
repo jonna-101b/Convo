@@ -55,7 +55,12 @@ public class UserController {
     @PutMapping("/me/password")
     public ResponseEntity<Void> changePassword(@Valid @RequestBody ChangePasswordRequest request) {
         Long userId = SecurityUtil.getCurrentUserId();
-        // In real implementation, verify currentPassword before updating
+        // Verify current password matches
+        var user = userService.getActualUser(userId);
+        if (user.isEmpty() || !userService.verifyPassword(request.currentPassword(), user.get().getPassword())) {
+            return ResponseEntity.status(401).build();
+        }
+
         boolean updated = userService.updatePassword(userId, request.newPassword());
         return updated ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }

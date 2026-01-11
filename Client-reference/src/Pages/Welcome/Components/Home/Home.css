@@ -1,0 +1,41 @@
+.welcome .home {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 4vh;
+}
+
+.welcome .home .headlines {
+        display: grid;
+        place-content: center;
+        gap: 2vh;
+}
+
+.welcome .home .headlines .main {
+        display: grid;
+        place-content: center;
+        font-size:  var(--system-max-font-size);
+        font-weight: var(--secondary-font-weight);
+        color: var(--primary-font-color-light-mode);
+        text-align: center;
+        width: 50vw;
+}
+
+.welcome .home .headlines .sub {
+        display: grid;
+        place-content: center;
+        font-size:  var(--primary-font-size);
+        font-weight: var(--primary-font-weight);
+        color: var(--primary-font-color-light-mode);
+        text-align: center;
+}
+
+.welcome .home .image {
+        display: grid;
+        place-content: center;
+}
+
+.welcome .home .image img {
+        width: 50vh;
+}

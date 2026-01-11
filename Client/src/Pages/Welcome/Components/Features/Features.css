@@ -1,109 +1,42 @@
-.welcome .features {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10vh;
-        padding-inline: 10vh;
+.features {
+  flex: 1;
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.welcome .features .image-headlines {
-        display: grid;
-        place-content: center;
-        gap: 2vh;
+.features h1 {
+  font-size: 2.5rem;
+  color: var(--system-accent-color);
+  margin-bottom: 3rem;
+  text-align: center;
 }
 
-.welcome .features .image-headlines .image {
-        display: grid;
-        place-content: center;
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
-.welcome .features .image-headlines .image img {
-        width: 64vh;
+.feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--primary-border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
 }
 
-.welcome .features .image-headlines .headlines {
-        display: grid;
-        place-content: center;
-        gap: 2vh;
+.feature-card:hover {
+  transform: translateY(-5px);
 }
 
-.welcome .features .image-headlines .headlines .main {
-        display: grid;
-        place-content: center;
-        font-size:  var(--system-max-font-size);
-        font-weight: var(--secondary-font-weight);
-        color: var(--primary-font-color-light-mode);
-        text-align: center;
-        width: 35vw;
+.feature-card h3 {
+  color: var(--system-accent-color);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
 }
 
-.welcome .features .image-headlines .headlines .sub {
-        place-self: center;
-        display: grid;
-        place-content: center;
-        font-size:  var(--primary-font-size);
-        font-weight: var(--primary-font-weight);
-        color: var(--primary-font-color-light-mode);
-        text-align: center;
-        width: 80%;
-}
-
-
-.welcome .features .descriptions {
-        display: grid;
-        place-content: center;
-        gap: 6vh;
-        padding-top: 6vh;
-        position: relative;
-}
-
-.welcome .features .descriptions .punchline {
-        display: grid;
-        place-content: center start;
-        font-size: var(--primary-font-size);
-        color: var(--secondary-font-color-light-mode);
-        position: absolute;
-}
-
-.welcome .features .descriptions .feature {
-        display: flex;
-        gap: 3vh;
-        padding-left: 3vh;
-        position: relative;
-}
-
-.welcome .features .descriptions .feature::before {
-        content: "";
-        display: grid;
-        background-color: var(--primary-font-color-light-mode);
-        border-radius: 10vh;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 4px;
-        height: 100%;
-}
-
-.welcome .features .descriptions .feature .icon {
-        display: grid;
-        place-content: center;
-}
-
-.welcome .features .descriptions .feature .icon img {
-        width: 7vh;
-}
-
-.welcome .features .descriptions .feature .text {
-        display: grid;
-        gap: 2vh;
-}
-
-.welcome .features .descriptions .feature .text .title {
-        font-size: var(--secondary-font-size);
-        font-weight: var(--primary-font-weight);
-        color: var(--primary-font-color-light-mode);
-}
-
-.welcome .features .descriptions .feature .text .description {
-        font-size: var(--tertiary-font-size);
-        color: var(--primary-font-color-light-mode);
+.feature-card p {
+  color: var(--primary-font-color-light-mode);
+  line-height: 1.6;
 }

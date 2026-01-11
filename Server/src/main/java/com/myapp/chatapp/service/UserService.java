@@ -3,6 +3,7 @@ package com.myapp.chatapp.service;
 import com.myapp.chatapp.domain.User;
 import com.myapp.chatapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,6 +24,9 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     public Long createUser(String username, String email, String password, String firstName, String lastName) {
         // Validate inputs
         if (!validateUsernameFormat(username) || !isUsernameAvailable(username)) {
@@ -39,7 +43,7 @@ public class UserService {
         User user = new User();
         user.setUsername(username);
         user.setEmail(email);
-        user.setPassword(password); // Should be hashed by caller
+        user.setPassword(passwordEncoder.encode(password)); // Hash password
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setIsActive(true);
@@ -61,6 +65,25 @@ public class UserService {
     public Optional<UserData> getUserByEmail(String email) {
         return userRepository.findByEmail(email)
                 .map(this::toUserData);
+    }
+
+    /**
+     * Get the actual User entity (not UserData) for password verification by ID
+     */
+    public Optional<User> getActualUser(Long userId) {
+        return userRepository.findById(userId);
+    }
+
+    /**
+     * Get the actual User entity (not UserData) for password verification by
+     * username/email
+     */
+    public Optional<User> getActualUser(String usernameOrEmail) {
+        Optional<User> userByUsername = userRepository.findByUsername(usernameOrEmail);
+        if (userByUsername.isPresent()) {
+            return userByUsername;
+        }
+        return userRepository.findByEmail(usernameOrEmail);
     }
 
     public boolean updateUserProfile(Long userId, String firstName, String lastName) {
@@ -92,7 +115,7 @@ public class UserService {
         }
 
         User user = userOpt.get();
-        user.setPassword(newPassword); // Should be hashed by caller
+        user.setPassword(passwordEncoder.encode(newPassword)); // Hash password
         userRepository.save(user);
         return true;
     }
@@ -151,6 +174,13 @@ public class UserService {
         return userOpt.isPresent() && Boolean.TRUE.equals(userOpt.get().getIsActive());
     }
 
+    /**
+     * Verify password matches the stored hashed password
+     */
+    public boolean verifyPassword(String rawPassword, String encodedPassword) {
+        return passwordEncoder.matches(rawPassword, encodedPassword);
+    }
+
     private UserData toUserData(User user) {
         return new UserData(
                 user.getId(),
@@ -159,8 +189,7 @@ public class UserService {
                 user.getFirstName(),
                 user.getLastName(),
                 user.getIsActive(),
-                user.getCreatedAt()
-        );
+                user.getCreatedAt());
     }
 
     /**
@@ -173,6 +202,6 @@ public class UserService {
             String firstName,
             String lastName,
             Boolean isActive,
-            java.time.Instant createdAt
-    ) {}
+            java.time.Instant createdAt) {
+    }
 }

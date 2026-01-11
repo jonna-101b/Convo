@@ -1,12 +1,14 @@
 import './Footer.css';
 
-
 function Footer() {
-        return (
-            <div className="footer">
-                © 2025 Convo. All rights reserved. Designed with ❤️ by Yet Enhid.
-            </div>
-        );
+  return (
+    <div className="footer">
+      <p>&copy; 2026 Convo. All rights reserved.</p>
+      <p>
+        Made with ❤️ for better communication
+      </p>
+    </div>
+  );
 }
 
 export default Footer;

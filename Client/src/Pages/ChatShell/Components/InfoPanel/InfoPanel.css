@@ -1,27 +1,88 @@
 .chat-shell .info-panel {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        gap: 4vh;
-        width: 0vw;
-        height: 100vh;
-        transition: width 0.25s ease-out;
-        overflow-y: auto;
+  width: 25vw;
+  min-width: 300px;
+  height: 100vh;
+  background: white;
+  border-left: 1px solid var(--secondary-background-color-light-mode);
+  overflow-y: auto;
+  transition: transform 0.3s ease-in-out;
 }
 
-.chat-shell .info-panel.focused {
-        padding: 4vh 3vh;
+.chat-shell .info-panel.hidden {
+  transform: translateX(100%);
+  position: absolute;
+  right: 0;
 }
 
-.chat-shell .info-panel::-webkit-scrollbar {
-        width: 8px;
+.info-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--secondary-background-color-light-mode);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.chat-shell .info-panel::-webkit-scrollbar-thumb {
-        background: var(--secondary-background-color-light-mode);
-        border-radius: 4px;
+.info-header h2 {
+  color: var(--system-accent-color);
+  font-size: 1.5rem;
 }
 
-.chat-shell .info-panel::-webkit-scrollbar-thumb:hover {
-        background: var(--tertiary-background-color-light-mode);
+.info-header .close-btn {
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border-radius: var(--tertiary-border-radius);
+  transition: background 0.3s;
+}
+
+.info-header .close-btn:hover {
+  background: var(--primary-hover-color-light-mode);
+}
+
+.info-body {
+  padding: 1.5rem;
+}
+
+.info-section {
+  margin-bottom: 2rem;
+}
+
+.info-section h3 {
+  color: var(--primary-font-color-light-mode);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.info-section p {
+  color: var(--secondary-font-color-light-mode);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.info-profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--system-accent-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--secondary-font-weight);
+  font-size: 2.5rem;
+  margin: 0 auto 1rem;
+}
+
+.info-name {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: var(--secondary-font-weight);
+  color: var(--primary-font-color-light-mode);
+  margin-bottom: 0.5rem;
+}
+
+.info-username {
+  text-align: center;
+  color: var(--secondary-font-color-light-mode);
+  margin-bottom: 2rem;
 }

@@ -1,33 +1,62 @@
 import { NavLink } from 'react-router-dom';
-import ConvoLogo from '../../../../assets/Images/Welcome/Convo-logo-light.png';
+import { useState } from 'react';
+import AuthModal from '../AuthModal/AuthModal';
 import './NavBar.css';
 
-
 function NavBar() {
-        return (
-                <div className="nav-bar">
-                        <div className="logo">
-                                <img src={ConvoLogo} alt="Convo logo" /> 
-                        </div>
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [authMode, setAuthMode] = useState('login'); // 'login' or 'signup'
 
-                        <nav>
-                                <NavLink className={({ isActive }) => isActive ? "active nav-link" : "nav-link"} to="/">Home</NavLink>
-                                <NavLink className={({ isActive }) => isActive ? "active nav-link" : "nav-link"} to="/about">About</NavLink>
-                                <NavLink className={({ isActive }) => isActive ? "active nav-link" : "nav-link"} to="/features">Features</NavLink>
-                                <NavLink className={({ isActive }) => isActive ? "active nav-link" : "nav-link"} to="/contacts">Contacts</NavLink>
-                        </nav>
+  const handleLogin = () => {
+    setAuthMode('login');
+    setShowAuthModal(true);
+  };
 
-                        <div className="sign">
-                                <p className="log-in">
-                                        Log In
-                                </p>
+  const handleSignup = () => {
+    setAuthMode('signup');
+    setShowAuthModal(true);
+  };
 
-                                <p className="sign-up">
-                                        Sign Up
-                                </p>
-                        </div>
-                </div>
-        );
+  return (
+    <>
+      <div className="nav-bar">
+        <div className="logo">
+          Convo
+        </div>
+
+        <nav>
+          <NavLink className={({ isActive }) => isActive ? "active nav-link" : "nav-link"} to="/welcome">
+            Home
+          </NavLink>
+          <NavLink className={({ isActive }) => isActive ? "active nav-link" : "nav-link"} to="/welcome/about">
+            About
+          </NavLink>
+          <NavLink className={({ isActive }) => isActive ? "active nav-link" : "nav-link"} to="/welcome/features">
+            Features
+          </NavLink>
+          <NavLink className={({ isActive }) => isActive ? "active nav-link" : "nav-link"} to="/welcome/contacts">
+            Contacts
+          </NavLink>
+        </nav>
+
+        <div className="sign">
+          <p className="log-in" onClick={handleLogin}>
+            Log In
+          </p>
+          <p className="sign-up" onClick={handleSignup}>
+            Sign Up
+          </p>
+        </div>
+      </div>
+
+      {showAuthModal && (
+        <AuthModal
+          mode={authMode}
+          onClose={() => setShowAuthModal(false)}
+        />
+      )}
+    </>
+  );
 }
 
 export default NavBar;

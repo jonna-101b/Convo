@@ -1,26 +1,30 @@
-import '../Styles/ChatTabs.css';
-
-
-function Tab({tab}) {
-        return (
-                <div className="tab">
-                        <p className="unread">{tab.unread}</p>
-
-                        <p className="name">{tab.name}</p>
-                </div>
-        );
-}
+import useSelectedTabStatusHook from '../../../hooks/useSelectedTabStatusHook';
 
 function ChatTabs() {
-        const tabs = [{name: "Private", unread: 7}, {name: "Groups", unread: 5}, {name: "Archived", unread: 3}];
+  const { tabStatus, setTabStatus } = useSelectedTabStatusHook();
 
-        return (
-                <div className="chat-tabs">
-                        { tabs.map((tab, index) => (
-                                <Tab key={index} tab={tab} />
-                        )) }
-                </div>
-        );
+  return (
+    <div className="chat-tabs">
+      <div
+        className={`tab ${tabStatus === 'chats' ? 'active' : ''}`}
+        onClick={() => setTabStatus('chats')}
+      >
+        Chats
+      </div>
+      <div
+        className={`tab ${tabStatus === 'friends' ? 'active' : ''}`}
+        onClick={() => setTabStatus('friends')}
+      >
+        Friends
+      </div>
+      <div
+        className={`tab ${tabStatus === 'groups' ? 'active' : ''}`}
+        onClick={() => setTabStatus('groups')}
+      >
+        Groups
+      </div>
+    </div>
+  );
 }
 
 export default ChatTabs;

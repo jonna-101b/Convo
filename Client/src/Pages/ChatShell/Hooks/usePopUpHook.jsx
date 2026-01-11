@@ -1,9 +1,22 @@
 import { useContext } from "react";
-import { PopUpContext } from "../Contexts/PopUpContext";
+import { PopUpContext } from "../contexts/PopUpContext";
 
 function usePopUpHook() {
-        const { label, setLabel } = useContext(PopUpContext);
-        return { label, setLabel };
+  const { popUp, setPopUp } = useContext(PopUpContext);
+
+  const openPopUp = (type) => {
+    setPopUp({ isOpen: true, type });
+  };
+
+  const closePopUp = () => {
+    setPopUp({ isOpen: false, type: null });
+  };
+
+  return {
+    popUp,
+    openPopUp,
+    closePopUp,
+  };
 }
 
 export default usePopUpHook;

@@ -1,0 +1,11 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Seed DB (app.seed.enabled=true)",
+			"type": "shell",
+			"command": "$env:APP_SEED_ENABLED='true'; $env:SPRING_APPLICATION_JSON='{\"app.seed.enabled\":true}'; .\\gradlew.bat bootRun",
+			"group": "build"
+		}
+	]
+}

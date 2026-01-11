@@ -1,152 +1,39 @@
-.welcome .contacts {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 5vh;
-        padding-inline: 10vh;
+.contacts {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.welcome .contacts .image-headlines {
-        display: grid;
-        place-content: center;
-        gap: 2vh;
+.contacts h1 {
+  font-size: 2.5rem;
+  color: var(--system-accent-color);
+  margin-bottom: 2rem;
 }
 
-.welcome .contacts .image-headlines .image {
-        display: grid;
-        place-content: center;
+.contacts p {
+  font-size: 1.2rem;
+  color: var(--primary-font-color-light-mode);
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
-.welcome .contacts .image-headlines .image img {
-        width: 48vh;
+.contact-info {
+  width: 100%;
+  background: white;
+  padding: 2rem;
+  border-radius: var(--primary-border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.welcome .contacts .image-headlines .headline-link {
-        display: grid;
-        place-content: center;
-        gap: 2vh;
+.contact-info div {
+  margin-bottom: 1rem;
 }
 
-.welcome .contacts .image-headlines .headline-link .headline {
-        display: grid;
-        place-content: center;
-        font-size:  var(--system-max-font-size);
-        font-weight: var(--secondary-font-weight);
-        color: var(--primary-font-color-light-mode);
-        text-align: center;
-}
-
-.welcome .contacts .image-headlines .headline-link .links {
-        place-self: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 4vh;
-        font-size:  var(--primary-font-size);
-        font-weight: var(--primary-font-weight);
-        color: var(--primary-font-color-light-mode);
-}
-
-.welcome .contacts .image-headlines .headline-link .links p {
-        display: grid;
-        place-content: center;
-        border-radius: 50%;
-        width: 6vh;
-        height: 6vh;
-        transition: background-color 0.15s linear;
-        cursor: pointer;
-}
-
-.welcome .contacts .image-headlines .headline-link .links p:focus,
-.welcome .contacts .image-headlines .headline-link .links p:hover {
-        background-color: var(--primary-hover-color-light-mode);
-}
-
-.welcome .contacts .image-headlines .headline-link .links p img {
-        width: 3.75vh;
-}
-
-.welcome .contacts .form-links {
-        display: grid;
-        gap: 4vh;
-}
-
-.welcome .contacts .form-links form {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 4vh;
-}
-
-.welcome .contacts .form-links form p {
-        display: grid;
-        align-items: center;
-        color: var(--secondary-font-color-light-mode);
-        background-color: var(--secondary-background-color-light-mode);
-        border-radius: var(--primary-border-radius);
-        overflow: hidden;
-}
-
-.welcome .contacts .form-links form .punchline {
-        grid-column: span 2;
-        font-size: var(--primary-font-size);
-        color: var(--secondary-font-color-light-mode);
-        background-color: transparent;
-        border-radius: 0;
-        box-shadow: none;
-        padding: 0;
-}
-
-.welcome .contacts .form-links form p input {
-        display: grid;
-        font-family: var(--primary-font-family);
-        color: var(--secondary-font-color-light-mode);
-        background-color: var(--secondary-background-color-light-mode);
-        border: none;
-        box-shadow: inset 0 0 1.5vh var(--tertiary-background-color-light-mode);
-        outline: none;
-        width: 100%;
-        height: 100%;
-        padding: 1.75vh 2.5vh;
-}
-
-.welcome .contacts .form-links form .subject {
-        grid-column: span 2;
-}
-
-.welcome .contacts .form-links form .message {
-        grid-column: span 2;
-        height: 30vh;
-}
-
-.welcome .contacts .form-links form p textarea {
-        display: grid;
-        font-family: var(--primary-font-family);
-        color: var(--secondary-font-color-light-mode);
-        background-color: var(--secondary-background-color-light-mode);
-        border: none;
-        box-shadow: inset 0 0 1.5vh var(--tertiary-background-color-light-mode);
-        outline: none;
-        width: 100%;
-        height: 100%;
-        padding: 2vh 2.5vh;
-        resize: none;
-}
-
-.welcome .contacts .form-links form button {
-        display: grid;
-        place-content: center;
-        font-size: var(--primary-font-size);
-        font-weight: var(--primary-font-weight);
-        color: var(--tertiary-font-color-light-mode);
-        background-color: var(--system-accent-color);
-        border: none;
-        border-radius: var(--primary-border-radius);
-        outline: none;
-        padding-block: 2vh;
-        opacity: 0.9;
-        transition: opacity 0.15s linear;
-}
-
-.welcome .contacts .form-links form button:focus,
-.welcome .contacts .form-links form button:hover {
-        opacity: 1;
+.contact-info strong {
+  color: var(--system-accent-color);
 }

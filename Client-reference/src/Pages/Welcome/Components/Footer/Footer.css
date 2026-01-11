@@ -1,0 +1,6 @@
+.welcome .footer {
+        display: grid;
+        place-content: center;
+        font-size: var(--tertiary-font-size);
+        text-align: center;
+}

@@ -1,63 +1,65 @@
-import { useEffect, useRef } from 'react';
-import useInfoDisplayHook from '../../Hooks/UseInfoDisplayHook';
-import useEmojiDisplayHook from '../../Hooks/useEmojiDisplayHook';
-import UseSelectHook from '../../Hooks/UseSelectHook';
-import InfoHeader from './Components/InfoHeader';
-import InfoBody from './Components/InfoBody';
-import FilesShared from './Components/FilesShared';
+import useSelectedChatHook from '../../hooks/useSelectedChatHook';
+import useInfoDisplayHook from '../../hooks/useInfoDisplayHook';
 import './InfoPanel.css';
 
-
-const isEmpty = (obj) => {
-        return Object.entries(obj).length === 0;
-};
-
 function InfoPanel() {
-        const { selected } = UseSelectHook();
-        const { display } = useInfoDisplayHook();
-        const { setDisplay } = useEmojiDisplayHook();
-        const infoDisplayRef = useRef(null);
+  const { selectedChat } = useSelectedChatHook();
+  const { infoDisplay, setInfoDisplay } = useInfoDisplayHook();
 
-        const handleClick = () => {
-                setDisplay(false);
-        };
+  const getInitials = (name) => {
+    if (!name) return '?';
+    const parts = name.split(' ');
+    if (parts.length >= 2) {
+      return (parts[0][0] + parts[1][0]).toUpperCase();
+    }
+    return name.substring(0, 2).toUpperCase();
+  };
 
-        useEffect(() => {
-                const infoDisplay = infoDisplayRef.current
+  if (!infoDisplay || !selectedChat) {
+    return <div className="info-panel hidden" />;
+  }
 
-                if (display) {
-                        if (infoDisplay) {
-                                infoDisplay.style.width = "25vw";
-                        }
-                }
-                else {
-                        if (infoDisplay) {
-                                infoDisplay.style.width = "0";
-                        }
-                }
-        }, [display]);
+  return (
+    <div className="info-panel">
+      <div className="info-header">
+        <h2>Chat Info</h2>
+        <div className="close-btn" onClick={() => setInfoDisplay(false)}>
+          ✕
+        </div>
+      </div>
 
+      <div className="info-body">
+        <div className="info-profile-pic">
+          {getInitials(selectedChat.name)}
+        </div>
 
-        if (isEmpty(selected)) {
-                return null;
-        }
+        <div className="info-name">{selectedChat.name}</div>
+        
+        {selectedChat.isGroup && (
+          <div className="info-username">Group Chat</div>
+        )}
 
-        return (
-                <div className={`info-panel ${display ? "focused" : null}`} ref={infoDisplayRef} onClick={handleClick} >
-                        { display ?
-                                <>
-                                        <InfoHeader />
+        <div className="info-section">
+          <h3>About</h3>
+          <p>
+            {selectedChat.description || 'No description available'}
+          </p>
+        </div>
 
-                                        <InfoBody />
-                
-                                        <FilesShared />
-                                </>
-                                : 
-                                null 
-                        }
-                        
-                </div>
-        );
+        {selectedChat.isGroup && (
+          <div className="info-section">
+            <h3>Participants</h3>
+            <p>{selectedChat.participantCount || 0} members</p>
+          </div>
+        )}
+
+        <div className="info-section">
+          <h3>Media & Files</h3>
+          <p>Shared media will appear here</p>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default InfoPanel;

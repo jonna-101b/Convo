@@ -1,11 +1,7 @@
 .welcome {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        font-family: var(--primary-font-family);
-        background-color: var(--primary-background-color-light-mode);
-        box-shadow: inset 0 -25vh 25vh var(--tertiary-background-color-light-mode);
-        width: 100%;
-        height: 100vh;
-        padding: 2.5vh;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--primary-background-color-light-mode);
 }

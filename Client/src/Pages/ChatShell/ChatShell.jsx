@@ -1,49 +1,50 @@
-import { ProfileContextProvider } from "../../Contexts/ProfileContext";
-import { FriendsContextProvider } from "../../Contexts/FriendsContext";
-import { GroupsContextProvider } from "../../Contexts/GroupsContext";
-import { SelectedChatContextProvider } from "./Contexts/SelectedChatContext";
-import { PopUpContextProvider } from "./Contexts/PopUpContext";
-import { InfoDisplayContextProvider } from "./Contexts/InfoDisplayContext";
-import { SelectedFileContextProvider } from "./Contexts/SelectedFileContext";
-import { SelectedTabStatusContextProvider } from "./Contexts/SelectedTabStatusContext";
-import SidePanel from "./Components/SidePanel/SidePanel";
-import ChatWindow from "./Components/ChatWindow/ChatWindow";
-import InfoPanel from "./Components/InfoPanel/InfoPanel";
-import PopUp from "./Components/PopUp/PopUp";
+import { useEffect } from 'react';
+import { SelectedChatContextProvider } from './contexts/SelectedChatContext';
+import { PopUpContextProvider } from './contexts/PopUpContext';
+import { InfoDisplayContextProvider } from './contexts/InfoDisplayContext';
+import { SelectedTabStatusContextProvider } from './contexts/SelectedTabStatusContext';
+import { EmojiDisplayContextProvider } from './contexts/EmojiDisplayContext';
+import SidePanel from './components/SidePanel/SidePanel';
+import ChatWindow from './components/ChatWindow/ChatWindow';
+import InfoPanel from './components/InfoPanel/InfoPanel';
+import PopUp from './components/PopUp/PopUp';
+import websocketService from '../../services/websocketService';
 import './ChatShell.css';
-import { EmojiDisplayContextProvider } from "./Contexts/EmojiDisplayContext";
-
 
 function ChatShell() {
-        return (
-                <ProfileContextProvider>
-                        <FriendsContextProvider>
-                                <GroupsContextProvider>
-                                        <SelectedChatContextProvider>
-                                                <PopUpContextProvider>
-                                                        <InfoDisplayContextProvider>
-                                                                <SelectedFileContextProvider>
-                                                                        <SelectedTabStatusContextProvider>
-                                                                                <EmojiDisplayContextProvider>
-                                                                                        <div className="chat-shell">
-                                                                                                <SidePanel />
+  useEffect(() => {
+    // Connect to WebSocket when ChatShell mounts
+    const token = localStorage.getItem('token');
+    if (token) {
+      websocketService.connect(token).catch(error => {
+        console.error('Failed to connect to WebSocket:', error);
+      });
+    }
 
-                                                                                                <ChatWindow />
+    // Cleanup on unmount
+    return () => {
+      websocketService.disconnect();
+    };
+  }, []);
 
-                                                                                                <InfoPanel />
-
-                                                                                                <PopUp />
-                                                                                        </div>
-                                                                                </EmojiDisplayContextProvider>
-                                                                        </SelectedTabStatusContextProvider>
-                                                                </SelectedFileContextProvider>
-                                                        </InfoDisplayContextProvider>
-                                                </PopUpContextProvider>
-                                        </SelectedChatContextProvider>
-                                </GroupsContextProvider>
-                        </FriendsContextProvider>
-                </ProfileContextProvider>
-        );
+  return (
+    <SelectedChatContextProvider>
+      <PopUpContextProvider>
+        <InfoDisplayContextProvider>
+          <SelectedTabStatusContextProvider>
+            <EmojiDisplayContextProvider>
+              <div className="chat-shell">
+                <SidePanel />
+                <ChatWindow />
+                <InfoPanel />
+                <PopUp />
+              </div>
+            </EmojiDisplayContextProvider>
+          </SelectedTabStatusContextProvider>
+        </InfoDisplayContextProvider>
+      </PopUpContextProvider>
+    </SelectedChatContextProvider>
+  );
 }
 
 export default ChatShell;

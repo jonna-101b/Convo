@@ -1,0 +1,27 @@
+.chat-shell .info-panel {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 4vh;
+        width: 0vw;
+        height: 100vh;
+        transition: width 0.25s ease-out;
+        overflow-y: auto;
+}
+
+.chat-shell .info-panel.focused {
+        padding: 4vh 3vh;
+}
+
+.chat-shell .info-panel::-webkit-scrollbar {
+        width: 8px;
+}
+
+.chat-shell .info-panel::-webkit-scrollbar-thumb {
+        background: var(--secondary-background-color-light-mode);
+        border-radius: 4px;
+}
+
+.chat-shell .info-panel::-webkit-scrollbar-thumb:hover {
+        background: var(--tertiary-background-color-light-mode);
+}

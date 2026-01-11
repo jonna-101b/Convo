@@ -1,10 +1,231 @@
 .chat-shell .side-panel {
-        display: grid;
-        width: 25vw;
-        height: 100vh;
-        padding-block: 2.5vh 1.5vh;
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+  min-width: 300px;
+  height: 100vh;
+  background: white;
+  border-right: 1px solid var(--secondary-background-color-light-mode);
 }
 
-.chat-shell .side-panel img {
-        width: 2vh;
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid var(--secondary-background-color-light-mode);
+}
+
+.panel-header .logo {
+  font-size: 1.5rem;
+  font-weight: var(--secondary-font-weight);
+  color: var(--system-accent-color);
+}
+
+.panel-header .tools {
+  display: flex;
+  gap: 1rem;
+}
+
+.panel-header .tools p {
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--tertiary-border-radius);
+  transition: background 0.3s;
+}
+
+.panel-header .tools p:hover {
+  background: var(--primary-hover-color-light-mode);
+}
+
+.chat-tabs {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  border-bottom: 1px solid var(--secondary-background-color-light-mode);
+}
+
+.chat-tabs .tab {
+  flex: 1;
+  text-align: center;
+  padding: 0.75rem;
+  cursor: pointer;
+  font-weight: var(--primary-font-weight);
+  color: var(--secondary-font-color-light-mode);
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.chat-tabs .tab.active {
+  color: var(--system-accent-color);
+  border-bottom-color: var(--system-accent-color);
+}
+
+.chat-tabs .tab:hover {
+  color: var(--system-accent-color);
+}
+
+.chat-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.chat {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-bottom: 1px solid var(--primary-background-color-light-mode);
+}
+
+.chat:hover {
+  background: var(--primary-hover-color-light-mode);
+}
+
+.chat.selected {
+  background: var(--system-accent-dimmed-color);
+}
+
+.chat .profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--system-accent-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--secondary-font-weight);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.chat .chat-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.chat .name-time {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.chat .username {
+  font-weight: var(--primary-font-weight);
+  color: var(--primary-font-color-light-mode);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chat .time {
+  font-size: var(--tertiary-font-size);
+  color: var(--secondary-font-color-light-mode);
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+}
+
+.chat .message-unread {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat .message {
+  font-size: var(--secondary-font-size);
+  color: var(--secondary-font-color-light-mode);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chat .unread {
+  display: none;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--system-accent-color);
+  color: white;
+  font-size: var(--tertiary-font-size);
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.25rem;
+}
+
+.chat .unread.active {
+  display: flex;
+}
+
+.panel-footer {
+  padding: 1rem;
+  border-top: 1px solid var(--secondary-background-color-light-mode);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.panel-footer:hover {
+  background: var(--primary-hover-color-light-mode);
+}
+
+.panel-footer .user-profile-pic {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--system-accent-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--secondary-font-weight);
+  font-size: 1.1rem;
+}
+
+.panel-footer .user-info {
+  flex: 1;
+}
+
+.panel-footer .user-name {
+  font-weight: var(--primary-font-weight);
+  color: var(--primary-font-color-light-mode);
+  margin-bottom: 0.25rem;
+}
+
+.panel-footer .user-status {
+  font-size: var(--secondary-font-size);
+  color: var(--secondary-font-color-light-mode);
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+  color: var(--secondary-font-color-light-mode);
+}
+
+.empty-state p {
+  margin-bottom: 1rem;
+  font-size: var(--primary-font-size);
+}
+
+.empty-state button {
+  padding: 0.75rem 1.5rem;
+  background: var(--system-accent-color);
+  color: white;
+  border: none;
+  border-radius: var(--tertiary-border-radius);
+  font-weight: var(--primary-font-weight);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.empty-state button:hover {
+  background: var(--system-accent-dark-color);
 }

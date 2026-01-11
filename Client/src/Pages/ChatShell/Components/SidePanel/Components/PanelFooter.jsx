@@ -1,40 +1,33 @@
-import LogOutIcon from '../../../../../assets/Icons/ChatShell/SidePanel/logout.png';
-import usePopUpHook from '../../../Hooks/UsePopUpHook';
-import '../Styles/PanelFooter.css';
-
+import useProfileHook from '../../../../../hooks/useProfileHook';
+import usePopUpHook from '../../../hooks/usePopUpHook';
 
 function PanelFooter() {
-        const { setLabel } = usePopUpHook();
+  const { profile } = useProfileHook();
+  const { openPopUp } = usePopUpHook();
 
-        const handleLogOut = () => {
-                setLabel("log out");
-        };
+  const getInitials = () => {
+    if (profile?.firstName && profile?.lastName) {
+      return (profile.firstName[0] + profile.lastName[0]).toUpperCase();
+    }
+    return profile?.username?.substring(0, 2).toUpperCase() || 'U';
+  };
 
-        return (
-                <div className="panel-footer">
-                        <div className="mini-profile">
-                                <p className="image">
-                                        <img src="www.siusclhscjcks.com" />
-                                </p>
+  return (
+    <div className="panel-footer" onClick={() => openPopUp('settings')}>
+      <div className="user-profile-pic">
+        {getInitials()}
+      </div>
 
-                                <div className="details">
-                                        <p className="username">
-                                                Jonna
-                                        </p>
-
-                                        <p className="status">
-                                                Online
-                                        </p>
-                                </div>
-                        </div>
-
-                        <div className="tools">
-                                <p className="logout" onClick={handleLogOut} >
-                                        <img src={LogOutIcon} alt="Log out icon" />
-                                </p>
-                        </div>
-                </div>
-        );
+      <div className="user-info">
+        <p className="user-name">
+          {profile?.firstName && profile?.lastName
+            ? `${profile.firstName} ${profile.lastName}`
+            : profile?.username || 'User'}
+        </p>
+        <p className="user-status">@{profile?.username || 'username'}</p>
+      </div>
+    </div>
+  );
 }
 
 export default PanelFooter;

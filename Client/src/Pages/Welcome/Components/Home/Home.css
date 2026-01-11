@@ -1,41 +1,36 @@
-.welcome .home {
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 4vh;
+.home {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  text-align: center;
 }
 
-.welcome .home .headlines {
-        display: grid;
-        place-content: center;
-        gap: 2vh;
+.home .headlines {
+  margin-bottom: 3rem;
 }
 
-.welcome .home .headlines .main {
-        display: grid;
-        place-content: center;
-        font-size:  var(--system-max-font-size);
-        font-weight: var(--secondary-font-weight);
-        color: var(--primary-font-color-light-mode);
-        text-align: center;
-        width: 50vw;
+.home .headlines .main {
+  font-size: 3rem;
+  font-weight: var(--secondary-font-weight);
+  color: var(--primary-font-color-light-mode);
+  margin-bottom: 1rem;
 }
 
-.welcome .home .headlines .sub {
-        display: grid;
-        place-content: center;
-        font-size:  var(--primary-font-size);
-        font-weight: var(--primary-font-weight);
-        color: var(--primary-font-color-light-mode);
-        text-align: center;
+.home .headlines .sub {
+  font-size: 1.5rem;
+  color: var(--secondary-font-color-light-mode);
 }
 
-.welcome .home .image {
-        display: grid;
-        place-content: center;
+.home .image {
+  max-width: 600px;
+  width: 100%;
 }
 
-.welcome .home .image img {
-        width: 50vh;
+.home .image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--primary-border-radius);
 }

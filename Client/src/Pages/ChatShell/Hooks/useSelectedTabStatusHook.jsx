@@ -1,9 +1,13 @@
 import { useContext } from "react";
-import { SelectedTabStatusContext } from "../Contexts/SelectedTabStatusContext";
+import { SelectedTabStatusContext } from "../contexts/SelectedTabStatusContext";
 
 function useSelectedTabStatusHook() {
-        const { selectedTab, setSelectedTab } = useContext(SelectedTabStatusContext);
-        return { selectedTab, setSelectedTab };
+  const { tabStatus, setTabStatus } = useContext(SelectedTabStatusContext);
+
+  return {
+    tabStatus,
+    setTabStatus,
+  };
 }
 
 export default useSelectedTabStatusHook;
