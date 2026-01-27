@@ -3,17 +3,8 @@ package com.myapp.chatapp.controller;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-/**
- * Utility class to extract user information from JWT security context
- * Assumes SecurityContext is populated with authenticated user
- */
 public class SecurityUtil {
 
-    /**
-     * Extract user ID from JWT security context
-     * @return User ID from authenticated principal
-     * @throws IllegalStateException if user is not authenticated
-     */
     public static Long getCurrentUserId() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || authentication.getPrincipal() == null) {

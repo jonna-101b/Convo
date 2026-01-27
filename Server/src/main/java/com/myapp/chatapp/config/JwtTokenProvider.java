@@ -19,9 +19,6 @@ public class JwtTokenProvider {
         this.secretKey = Keys.hmacShaKeyFor(jwtProperties.secret().getBytes());
     }
 
-    /**
-     * Generate JWT token for authenticated user
-     */
     public String generateToken(Long userId, String username) {
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + jwtProperties.expirationMs());
@@ -35,26 +32,17 @@ public class JwtTokenProvider {
                 .compact();
     }
 
-    /**
-     * Get user ID from JWT token
-     */
     public Long getUserIdFromToken(String token) {
         Claims claims = getAllClaimsFromToken(token);
         String userIdStr = claims.getSubject();
         return Long.parseLong(userIdStr);
     }
 
-    /**
-     * Get username from JWT token
-     */
     public String getUsernameFromToken(String token) {
         Claims claims = getAllClaimsFromToken(token);
         return claims.get("username", String.class);
     }
 
-    /**
-     * Validate JWT token
-     */
     public boolean validateToken(String token) {
         try {
             Jwts.parser()
@@ -67,9 +55,6 @@ public class JwtTokenProvider {
         }
     }
 
-    /**
-     * Check if token is expired
-     */
     public boolean isTokenExpired(String token) {
         try {
             Claims claims = getAllClaimsFromToken(token);
@@ -79,9 +64,6 @@ public class JwtTokenProvider {
         }
     }
 
-    /**
-     * Extract all claims from token
-     */
     private Claims getAllClaimsFromToken(String token) {
         return Jwts.parser()
                 .verifyWith(secretKey)

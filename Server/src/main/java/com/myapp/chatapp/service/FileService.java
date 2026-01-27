@@ -214,9 +214,6 @@ public class FileService {
         );
     }
 
-    /**
-     * File metadata data transfer object
-     */
     public record FileMetadataData(
             Long id,
             Long messageId,

@@ -37,7 +37,6 @@ class WebSocketService {
       );
       this.stompClient = Stomp.over(socket);
 
-      // Disable debug output
       this.stompClient.debug = null;
 
       const headers = {

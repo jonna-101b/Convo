@@ -245,9 +245,6 @@ public class FriendRequestService {
         );
     }
 
-    /**
-     * Friend request data transfer object
-     */
     public record FriendRequestData(
             Long id,
             Long senderId,

@@ -179,9 +179,6 @@ public class UserSettingsService {
         );
     }
 
-    /**
-     * User settings data transfer object
-     */
     public record UserSettingsData(
             Long id,
             Long userId,

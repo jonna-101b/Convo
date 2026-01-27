@@ -67,17 +67,10 @@ public class UserService {
                 .map(this::toUserData);
     }
 
-    /**
-     * Get the actual User entity (not UserData) for password verification by ID
-     */
     public Optional<User> getActualUser(Long userId) {
         return userRepository.findById(userId);
     }
 
-    /**
-     * Get the actual User entity (not UserData) for password verification by
-     * username/email
-     */
     public Optional<User> getActualUser(String usernameOrEmail) {
         Optional<User> userByUsername = userRepository.findByUsername(usernameOrEmail);
         if (userByUsername.isPresent()) {
@@ -174,9 +167,6 @@ public class UserService {
         return userOpt.isPresent() && Boolean.TRUE.equals(userOpt.get().getIsActive());
     }
 
-    /**
-     * Verify password matches the stored hashed password
-     */
     public boolean verifyPassword(String rawPassword, String encodedPassword) {
         return passwordEncoder.matches(rawPassword, encodedPassword);
     }
@@ -192,9 +182,6 @@ public class UserService {
                 user.getCreatedAt());
     }
 
-    /**
-     * User data transfer object
-     */
     public record UserData(
             Long id,
             String username,

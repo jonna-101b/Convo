@@ -1,21 +1,25 @@
-import api from './api';
-import { userService } from './userService';
+import api from "./api";
+import { userService } from "./userService";
 
 export const friendService = {
   async sendFriendRequest(receiverId) {
-    const response = await api.post('/api/friends/requests', {
+    const response = await api.post("/api/friends/requests", {
       receiverId,
     });
     return response.data;
   },
 
   async acceptFriendRequest(requestId) {
-    const response = await api.post(`/api/friends/requests/${requestId}/accept`);
+    const response = await api.post(
+      `/api/friends/requests/${requestId}/accept`,
+    );
     return response.data;
   },
 
   async rejectFriendRequest(requestId) {
-    const response = await api.post(`/api/friends/requests/${requestId}/reject`);
+    const response = await api.post(
+      `/api/friends/requests/${requestId}/reject`,
+    );
     return response.data;
   },
 
@@ -25,23 +29,22 @@ export const friendService = {
   },
 
   async getPendingRequestsReceived() {
-    const response = await api.get('/api/friends/requests/pending/received');
+    const response = await api.get("/api/friends/requests/pending/received");
     return response.data;
   },
 
   async getPendingRequestsSent() {
-    const response = await api.get('/api/friends/requests/pending/sent');
+    const response = await api.get("/api/friends/requests/pending/sent");
     return response.data;
   },
 
   async getAllRequests() {
-    const response = await api.get('/api/friends/requests');
+    const response = await api.get("/api/friends/requests");
     return response.data;
   },
 
   async getFriends() {
-    // Backend returns a list of friend userIds; hydrate them into user objects for the UI
-    const response = await api.get('/api/friends/list');
+    const response = await api.get("/api/friends/list");
     const friendIds = response.data || [];
 
     if (friendIds.length === 0) return [];
@@ -54,7 +57,7 @@ export const friendService = {
           console.error(`Error fetching user ${id}:`, error);
           return null;
         }
-      })
+      }),
     );
 
     return friendProfiles.filter(Boolean);

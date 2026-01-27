@@ -307,9 +307,6 @@ public class MessageService {
         );
     }
 
-    /**
-     * Message data transfer object
-     */
     public record MessageData(
             Long id,
             Long chatId,
@@ -324,9 +321,6 @@ public class MessageService {
             java.time.Instant updatedAt
     ) {}
 
-    /**
-     * File metadata data transfer object (nested in MessageData)
-     */
     public record FileMetadataData(
             Long id,
             String fileName,

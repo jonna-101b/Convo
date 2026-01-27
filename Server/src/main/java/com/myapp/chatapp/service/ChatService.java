@@ -403,9 +403,6 @@ public class ChatService {
         );
     }
 
-    /**
-     * Chat data transfer object
-     */
     public record ChatData(
             Long id,
             String chatType,
@@ -416,9 +413,6 @@ public class ChatService {
             java.time.Instant updatedAt) {
     }
 
-    /**
-     * Participant data transfer object
-     */
     public record ParticipantData(
             Long id,
             Long userId,

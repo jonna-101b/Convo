@@ -22,9 +22,6 @@ public class ProfilePictureController {
         this.profilePictureService = profilePictureService;
     }
 
-    /**
-     * Upload user profile picture
-     */
     @PostMapping("/users/{userId}")
     public ResponseEntity<Long> uploadUserProfilePicture(
             @PathVariable Long userId,
@@ -71,9 +68,6 @@ public class ProfilePictureController {
         }
     }
 
-    /**
-     * Upload group profile picture
-     */
     @PostMapping("/groups/{groupId}")
     public ResponseEntity<Long> uploadGroupProfilePicture(
             @PathVariable Long groupId,
@@ -113,10 +107,6 @@ public class ProfilePictureController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
-
-    /**
-     * Get user profile picture
-     */
     @GetMapping("/users/{userId}")
     public ResponseEntity<ProfilePictureService.ProfilePictureData> getUserProfilePicture(@PathVariable Long userId) {
         return profilePictureService.getUserProfilePicture(userId)
@@ -124,9 +114,6 @@ public class ProfilePictureController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    /**
-     * Get group profile picture
-     */
     @GetMapping("/groups/{groupId}")
     public ResponseEntity<ProfilePictureService.ProfilePictureData> getGroupProfilePicture(@PathVariable Long groupId) {
         return profilePictureService.getGroupProfilePicture(groupId)
@@ -134,9 +121,6 @@ public class ProfilePictureController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    /**
-     * Delete profile picture
-     */
     @DeleteMapping("/{pictureId}")
     public ResponseEntity<Void> deleteProfilePicture(@PathVariable Long pictureId) {
         boolean deleted = profilePictureService.deleteProfilePicture(pictureId);

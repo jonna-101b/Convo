@@ -22,9 +22,6 @@ public class FileController {
         this.fileService = fileService;
     }
 
-    /**
-     * Upload a file and return metadata ID
-     */
     @PostMapping("/upload")
     public ResponseEntity<Long> uploadFile(@RequestParam("file") MultipartFile file) {
         if (file.isEmpty()) {
@@ -62,10 +59,6 @@ public class FileController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
-
-    /**
-     * Download a file by metadata ID
-     */
     @GetMapping("/{fileMetadataId}")
     public ResponseEntity<byte[]> downloadFile(@PathVariable Long fileMetadataId) {
         var fileMetadata = fileService.getFileMetadataById(fileMetadataId);
@@ -87,18 +80,12 @@ public class FileController {
         }
     }
 
-    /**
-     * Delete a file
-     */
     @DeleteMapping("/{fileMetadataId}")
     public ResponseEntity<Void> deleteFile(@PathVariable Long fileMetadataId) {
         boolean deleted = fileService.deleteFileMetadata(fileMetadataId, true);
         return deleted ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }
 
-    /**
-     * Get file metadata
-     */
     @GetMapping("/{fileMetadataId}/metadata")
     public ResponseEntity<FileService.FileMetadataData> getFileMetadata(@PathVariable Long fileMetadataId) {
         return fileService.getFileMetadataById(fileMetadataId)
@@ -106,9 +93,6 @@ public class FileController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    /**
-     * Determine file type from filename
-     */
     private String getFileType(String filename) {
         if (filename == null || !filename.contains(".")) {
             return "OTHER";

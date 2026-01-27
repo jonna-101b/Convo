@@ -8,10 +8,6 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class ChatWebSocketController {
 
-    /**
-     * Handle incoming messages from /app/chat/{chatId}
-     * Broadcast to /topic/chat/{chatId}
-     */
     @MessageMapping("/chat/{chatId}")
     @SendTo("/topic/chat/{chatId}")
     public ChatMessage handleChatMessage(
@@ -20,9 +16,6 @@ public class ChatWebSocketController {
         return message;
     }
 
-    /**
-     * Handle incoming typing notifications
-     */
     @MessageMapping("/chat/{chatId}/typing")
     @SendTo("/topic/chat/{chatId}/typing")
     public TypingNotification handleTypingNotification(
@@ -31,18 +24,12 @@ public class ChatWebSocketController {
         return notification;
     }
 
-    /**
-     * Handle user status updates (online/offline/away)
-     */
     @MessageMapping("/user/status")
     @SendTo("/topic/user-status")
     public UserStatusMessage handleUserStatus(UserStatusMessage status) {
         return status;
     }
 
-    /**
-     * Chat message DTO for WebSocket
-     */
     public static class ChatMessage {
         private Long chatId;
         private Long userId;
@@ -113,9 +100,6 @@ public class ChatWebSocketController {
         }
     }
 
-    /**
-     * Typing notification DTO
-     */
     public static class TypingNotification {
         private Long chatId;
         private Long userId;
@@ -165,9 +149,6 @@ public class ChatWebSocketController {
         }
     }
 
-    /**
-     * User status message DTO
-     */
     public static class UserStatusMessage {
         private Long userId;
         private String username;

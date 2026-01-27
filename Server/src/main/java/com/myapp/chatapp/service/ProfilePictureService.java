@@ -27,9 +27,6 @@ public class ProfilePictureService {
     @Autowired
     private GroupRepository groupRepository;
 
-    /**
-     * Upload a profile picture for a user
-     */
     public Long uploadUserProfilePicture(Long userId, String filePath, String fileName, Long fileSize,
             String contentType) {
         Optional<User> userOpt = userRepository.findById(userId);
@@ -53,9 +50,6 @@ public class ProfilePictureService {
         return saved.getId();
     }
 
-    /**
-     * Upload a profile picture for a group
-     */
     public Long uploadGroupProfilePicture(Long groupId, String filePath, String fileName, Long fileSize,
             String contentType) {
         Optional<Group> groupOpt = groupRepository.findById(groupId);
@@ -79,9 +73,6 @@ public class ProfilePictureService {
         return saved.getId();
     }
 
-    /**
-     * Get user profile picture
-     */
     public Optional<ProfilePictureData> getUserProfilePicture(Long userId) {
         List<ProfilePicture> pictures = profilePictureRepository.findByUser_Id(userId);
         if (pictures.isEmpty()) {
@@ -90,9 +81,6 @@ public class ProfilePictureService {
         return Optional.of(toProfilePictureData(pictures.get(0)));
     }
 
-    /**
-     * Get group profile picture
-     */
     public Optional<ProfilePictureData> getGroupProfilePicture(Long groupId) {
         List<ProfilePicture> pictures = profilePictureRepository.findByGroup_Id(groupId);
         if (pictures.isEmpty()) {
@@ -101,9 +89,6 @@ public class ProfilePictureService {
         return Optional.of(toProfilePictureData(pictures.get(0)));
     }
 
-    /**
-     * Delete profile picture
-     */
     public boolean deleteProfilePicture(Long pictureId) {
         Optional<ProfilePicture> pictureOpt = profilePictureRepository.findById(pictureId);
         if (pictureOpt.isEmpty()) {
@@ -127,9 +112,6 @@ public class ProfilePictureService {
                 picture.getUpdatedAt());
     }
 
-    /**
-     * Profile picture data transfer object
-     */
     public record ProfilePictureData(
             Long id,
             Long userId,
