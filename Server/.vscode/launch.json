@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ConvoApplication<Server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "org.convo.convo.ConvoApplication",
+            "projectName": "Server",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
