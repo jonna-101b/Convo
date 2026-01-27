@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -5,56 +7,49 @@
 }
 
 :root {
-  --primary-background-color-light-mode: #F5F5F5;
-  --secondary-background-color-light-mode: #D5D5D5;
-  --tertiary-background-color-light-mode: #C3C3C3;
-  --quaternary-background-color-light-mode:  #888888;
+  /* Core palette: yellow + black theme */
+  --primary-background-color-light-mode: #fff8ed;
+  --secondary-background-color-light-mode: #fff1d6;
+  --tertiary-background-color-light-mode: #ffe7a8;
+  --quaternary-background-color-light-mode: #ffd447;
 
-  --primary-background-color-dark-mode: #2A2A2A;
-  --secondary-background-color-dark-mode: #000000;
-  --tertiary-background-color-dark-mode: #404040;
-  
-  --glassy-background-color-light-mode: rgba(255, 255, 255, 0.75);
-  --background-shadow-color-light-mode: #707070;
+  --primary-background-color-dark-mode: #0f0f0f;
+  --secondary-background-color-dark-mode: #0a0a0a;
+  --tertiary-background-color-dark-mode: #1b1b1b;
+
+  --glassy-background-color-light-mode: rgba(255, 255, 255, 0.82);
+  --background-shadow-color-light-mode: rgba(0, 0, 0, 0.12);
   --negative-background-color: #ff4500;
-  
-  --system-accent-color: #942678;
-  --system-accent-dark-color: #7c1b64;
-  --system-accent-dimmed-color: rgba(145, 38, 118, 0.2);
-  
 
-  --primary-hover-color-light-mode: #E1E1E1;
-  --secondary-hover-color-light-mode: #c3c3c3;
-  --tertiary-hover-color-light-mode: rgba(255, 68, 0, 0.125);
+  --system-accent-color: #0f0f0f;
+  --system-accent-dark-color: #000000;
+  --system-accent-dimmed-color: rgba(0, 0, 0, 0.12);
 
+  --primary-hover-color-light-mode: #ffe37b;
+  --secondary-hover-color-light-mode: #ffd447;
+  --tertiary-hover-color-light-mode: rgba(0, 0, 0, 0.06);
 
-  --primary-border-radius: 2vh;
-  --secondary-border-radius: 4vh;
-  --tertiary-border-radius: 1vh;
+  --primary-border-radius: 20px;
+  --secondary-border-radius: 28px;
+  --tertiary-border-radius: 12px;
 
-  
-  --primary-font-color-light-mode: #0B0D0E;
-  --secondary-font-color-light-mode: #888888;
-  --tertiary-font-color-light-mode: #F5F5F5;
-  
-  --primary-font-color-dark-mode: #F5F5F5;
-  --secondary-font-color-dark-mode: #888888;
-  --system-font-color: #9F0082;
-  
+  --primary-font-color-light-mode: #0f0f0f;
+  --secondary-font-color-light-mode: #3c3c3c;
+  --tertiary-font-color-light-mode: #fffdf8;
+
+  --primary-font-color-dark-mode: #fdfbf6;
+  --secondary-font-color-dark-mode: #d9d9d9;
+  --system-font-color: #ffd447;
+
   --negative-font-color: #ff4500;
 
-
-  --primary-font-family: Poppins, Arial, Helvetica, sans-serif;
-  --secondary-font-family: Poppins, "Segoe UI", Arial, Helvetica, sans-serif, system-ui, -apple-system, BlinkMacSystemFont;
+  --primary-font-family: "Poppins", "Segoe UI", Arial, Helvetica, sans-serif;
+  --secondary-font-family:
+    "Poppins", "Segoe UI", Arial, Helvetica, sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont;
   --tertiary-font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    "Apple Color Emoji",
-    "Segoe UI Emoji",
-    "Segoe UI Symbol",
-    "Noto Color Emoji";
-
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   --primary-font-size: 16px;
   --secondary-font-size: 14px;
@@ -62,7 +57,6 @@
   --quaternary-font-size: 20px;
   --system-max-font-size: 48px;
   --system-min-font-size: 10px;
-
 
   --primary-font-weight: 600;
   --secondary-font-weight: 700;

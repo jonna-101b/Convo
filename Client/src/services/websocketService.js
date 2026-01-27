@@ -1,16 +1,40 @@
-import SockJS from 'sockjs-client';
-import Stomp from 'stompjs';
+import SockJS from "sockjs-client";
+import Stomp from "stompjs";
 
 class WebSocketService {
   constructor() {
     this.stompClient = null;
     this.connected = false;
+    this.connecting = false;
     this.subscribers = new Map();
   }
 
   connect(token) {
+    if (this.connected) {
+      return Promise.resolve();
+    }
+
+    if (this.connecting) {
+      return new Promise((resolve, reject) => {
+        const check = () => {
+          if (this.connected) {
+            resolve();
+          } else if (!this.connecting) {
+            reject(new Error("WebSocket failed to connect"));
+          } else {
+            setTimeout(check, 100);
+          }
+        };
+        check();
+      });
+    }
+
+    this.connecting = true;
+
     return new Promise((resolve, reject) => {
-      const socket = new SockJS(`${import.meta.env.VITE_WS_BASE_URL || 'http://localhost:8080/ws'}`);
+      const socket = new SockJS(
+        `${import.meta.env.VITE_WS_BASE_URL || "http://localhost:8080/ws"}`,
+      );
       this.stompClient = Stomp.over(socket);
 
       // Disable debug output
@@ -24,14 +48,16 @@ class WebSocketService {
         headers,
         () => {
           this.connected = true;
-          console.log('WebSocket connected');
+          this.connecting = false;
+          console.log("WebSocket connected");
           resolve();
         },
         (error) => {
           this.connected = false;
-          console.error('WebSocket connection error:', error);
+          this.connecting = false;
+          console.error("WebSocket connection error:", error);
           reject(error);
-        }
+        },
       );
     });
   }
@@ -40,15 +66,23 @@ class WebSocketService {
     if (this.stompClient && this.connected) {
       this.stompClient.disconnect(() => {
         this.connected = false;
-        console.log('WebSocket disconnected');
+        this.connecting = false;
+        this.subscribers.forEach((sub) => sub.unsubscribe?.());
+        this.subscribers.clear();
+        this.stompClient = null;
+        console.log("WebSocket disconnected");
       });
     }
   }
 
   subscribeToChat(chatId, callback) {
     if (!this.connected) {
-      console.error('WebSocket not connected');
+      console.error("WebSocket not connected");
       return null;
+    }
+
+    if (this.subscribers.has(chatId)) {
+      return this.subscribers.get(chatId);
     }
 
     const subscription = this.stompClient.subscribe(
@@ -56,7 +90,7 @@ class WebSocketService {
       (message) => {
         const data = JSON.parse(message.body);
         callback(data);
-      }
+      },
     );
 
     this.subscribers.set(chatId, subscription);
@@ -73,7 +107,7 @@ class WebSocketService {
 
   sendMessage(destination, body) {
     if (!this.connected) {
-      console.error('WebSocket not connected');
+      console.error("WebSocket not connected");
       return;
     }
 
@@ -86,17 +120,14 @@ class WebSocketService {
 
   subscribeToUser(userId, callback) {
     if (!this.connected) {
-      console.error('WebSocket not connected');
+      console.error("WebSocket not connected");
       return null;
     }
 
-    return this.stompClient.subscribe(
-      `/topic/user/${userId}`,
-      (message) => {
-        const data = JSON.parse(message.body);
-        callback(data);
-      }
-    );
+    return this.stompClient.subscribe(`/topic/user/${userId}`, (message) => {
+      const data = JSON.parse(message.body);
+      callback(data);
+    });
   }
 
   isConnected() {

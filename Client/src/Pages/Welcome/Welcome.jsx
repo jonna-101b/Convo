@@ -14,9 +14,9 @@ function Welcome() {
       
       <Routes>
         <Route index element={<Home />} />
-        <Route path="about" element={<About />} />
+        {/* <Route path="about" element={<About />} />
         <Route path="features" element={<Features />} />
-        <Route path="contacts" element={<Contacts />} />
+        <Route path="contacts" element={<Contacts />} /> */}
       </Routes>
       
       <Footer />

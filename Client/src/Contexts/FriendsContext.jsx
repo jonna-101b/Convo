@@ -4,12 +4,23 @@ import { friendService } from "../services/friendService";
 export const FriendsContext = createContext();
 
 function friendsReducer(state, action) {
+  const uniqueById = (list) => {
+    const seen = new Set();
+    const result = [];
+    for (const item of list) {
+      if (!item?.id || seen.has(item.id)) continue;
+      seen.add(item.id);
+      result.push(item);
+    }
+    return result;
+  };
+
   switch (action.type) {
     case "SET_FRIENDS":
-      return { ...state, friends: action.payload, loading: false };
+      return { ...state, friends: uniqueById(action.payload), loading: false };
     
     case "ADD_FRIEND":
-      return { ...state, friends: [action.payload, ...state.friends] };
+      return { ...state, friends: uniqueById([action.payload, ...state.friends]) };
     
     case "REMOVE_FRIEND":
       return {
@@ -18,10 +29,10 @@ function friendsReducer(state, action) {
       };
     
     case "SET_REQUESTS":
-      return { ...state, requests: action.payload };
+      return { ...state, requests: uniqueById(action.payload) };
     
     case "ADD_REQUEST":
-      return { ...state, requests: [action.payload, ...state.requests] };
+      return { ...state, requests: uniqueById([action.payload, ...state.requests]) };
     
     case "REMOVE_REQUEST":
       return {

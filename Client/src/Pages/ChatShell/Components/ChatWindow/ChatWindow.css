@@ -49,11 +49,18 @@
   padding: 0.5rem;
   border-radius: var(--tertiary-border-radius);
   transition: background 0.3s;
-  font-size: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .chat-header .chat-actions p:hover {
   background: var(--primary-hover-color-light-mode);
+}
+
+.chat-header .chat-actions svg {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .chat-body {
@@ -156,7 +163,9 @@
   font-weight: var(--primary-font-weight);
   cursor: pointer;
   transition: background 0.3s;
-  font-size: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .chat-input-actions button:first-of-type {
@@ -177,6 +186,11 @@
   cursor: not-allowed;
 }
 
+.chat-input-actions svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
 .message-attachments {
   display: flex;
   flex-direction: column;
@@ -194,6 +208,9 @@
   color: var(--system-accent-color);
   text-decoration: none;
   font-weight: var(--primary-font-weight);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .empty-chat {

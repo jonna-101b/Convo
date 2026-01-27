@@ -122,10 +122,12 @@ function ChatList() {
   if (tabStatus === 'chats') {
     if (chats.length === 0) {
       return (
-        <div className="empty-state">
-          <p>No chats yet</p>
-          <p>Start a conversation with a friend!</p>
-          <button onClick={() => openPopUp('search')}>Find Friends</button>
+        <div className="chat-list">
+          <div className="empty-state">
+            <p>No chats yet</p>
+            <p>Start a conversation with a friend!</p>
+            <button onClick={() => openPopUp('search')}>Find Friends</button>
+          </div>
         </div>
       );
     }
@@ -147,10 +149,12 @@ function ChatList() {
   if (tabStatus === 'friends') {
     if (friends.length === 0) {
       return (
-        <div className="empty-state">
-          <p>No friends yet</p>
-          <p>Add some friends to start chatting!</p>
-          <button onClick={() => openPopUp('search')}>Find Friends</button>
+        <div className="chat-list">
+          <div className="empty-state">
+            <p>No friends yet</p>
+            <p>Add some friends to start chatting!</p>
+            <button onClick={() => openPopUp('search')}>Find Friends</button>
+          </div>
         </div>
       );
     }
@@ -173,10 +177,12 @@ function ChatList() {
 
     if (groupChats.length === 0) {
       return (
-        <div className="empty-state">
-          <p>No groups yet</p>
-          <p>Create a group to chat with multiple friends!</p>
-          <button onClick={() => openPopUp('createGroup')}>Create Group</button>
+        <div className="chat-list">
+          <div className="empty-state">
+            <p>No groups yet</p>
+            <p>Create a group to chat with multiple friends!</p>
+            <button onClick={() => openPopUp('createGroup')}>Create Group</button>
+          </div>
         </div>
       );
     }

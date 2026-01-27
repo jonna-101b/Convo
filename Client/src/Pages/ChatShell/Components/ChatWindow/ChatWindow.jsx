@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { FaPaperclip, FaPaperPlane, FaInfoCircle } from 'react-icons/fa';
 import { format } from 'date-fns';
 import useSelectedChatHook from '../../hooks/useSelectedChatHook';
 import useInfoDisplayHook from '../../hooks/useInfoDisplayHook';
@@ -201,7 +202,7 @@ function ChatWindow() {
                 <img src={fileUrl} alt={file.fileName} className="attachment-image" />
               ) : (
                 <a href={fileUrl} target="_blank" rel="noreferrer" className="attachment-link">
-                  📎 {file.fileName || 'Download file'}
+                  <FaPaperclip aria-hidden="true" /> {file.fileName || 'Download file'}
                 </a>
               )}
             </div>
@@ -235,7 +236,7 @@ function ChatWindow() {
 
         <div className="chat-actions">
           <p onClick={() => setInfoDisplay(true)} title="Info">
-            ℹ️
+            <FaInfoCircle aria-hidden="true" />
           </p>
         </div>
       </div>
@@ -287,10 +288,10 @@ function ChatWindow() {
               onChange={handleFileChange}
             />
             <button onClick={handleFileButtonClick} disabled={uploading} title="Send file or image">
-              📎
+              <FaPaperclip aria-hidden="true" />
             </button>
             <button onClick={handleSendMessage} disabled={!inputMessage.trim()}>
-              ➤
+              <FaPaperPlane aria-hidden="true" />
             </button>
           </div>
         </div>

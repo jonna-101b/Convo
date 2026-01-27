@@ -5,12 +5,24 @@ import { authService } from "../services/authService";
 export const ChatsContext = createContext();
 
 function chatsReducer(state, action) {
+  const uniqueById = (list) => {
+    const seen = new Set();
+    const result = [];
+    for (const item of list) {
+      const id = item.chatId || item.id;
+      if (!id || seen.has(id)) continue;
+      seen.add(id);
+      result.push(item);
+    }
+    return result;
+  };
+
   switch (action.type) {
     case "SET_CHATS":
-      return { ...state, chats: action.payload, loading: false };
+      return { ...state, chats: uniqueById(action.payload), loading: false };
     
     case "ADD_CHAT":
-      return { ...state, chats: [action.payload, ...state.chats] };
+      return { ...state, chats: uniqueById([action.payload, ...state.chats]) };
     
     case "UPDATE_CHAT":
       return {

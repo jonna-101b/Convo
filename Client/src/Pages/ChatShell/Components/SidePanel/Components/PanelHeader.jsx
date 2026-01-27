@@ -1,3 +1,4 @@
+import { FaBullseye, FaSearch, FaCog } from 'react-icons/fa';
 import usePopUpHook from '../../../hooks/usePopUpHook';
 
 function PanelHeader() {
@@ -11,13 +12,13 @@ function PanelHeader() {
 
       <div className="tools">
         <p onClick={() => openPopUp('socialRadar')} title="Social Radar">
-          🎯
+          <FaBullseye aria-hidden="true" />
         </p>
         <p onClick={() => openPopUp('search')} title="Search">
-          🔍
+          <FaSearch aria-hidden="true" />
         </p>
         <p onClick={() => openPopUp('settings')} title="Settings">
-          ⚙️
+          <FaCog aria-hidden="true" />
         </p>
       </div>
     </div>

@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import AuthModal from '../AuthModal/AuthModal';
 import './NavBar.css';
@@ -20,32 +19,19 @@ function NavBar() {
   return (
     <>
       <div className="nav-bar">
-        <div className="logo">
-          Convo
-        </div>
+        <div className="nav-shell">
+          <div className="logo">Convo</div>
 
-        <nav>
-          <NavLink className={({ isActive }) => isActive ? "active nav-link" : "nav-link"} to="/welcome">
-            Home
-          </NavLink>
-          <NavLink className={({ isActive }) => isActive ? "active nav-link" : "nav-link"} to="/welcome/about">
-            About
-          </NavLink>
-          <NavLink className={({ isActive }) => isActive ? "active nav-link" : "nav-link"} to="/welcome/features">
-            Features
-          </NavLink>
-          <NavLink className={({ isActive }) => isActive ? "active nav-link" : "nav-link"} to="/welcome/contacts">
-            Contacts
-          </NavLink>
-        </nav>
+          
 
-        <div className="sign">
-          <p className="log-in" onClick={handleLogin}>
-            Log In
-          </p>
-          <p className="sign-up" onClick={handleSignup}>
-            Sign Up
-          </p>
+          <div className="sign">
+            <button type="button" className="log-in" onClick={handleLogin}>
+              Login
+            </button>
+            <button type="button" className="sign-up" id='sign-up-btn' onClick={handleSignup}>
+              Sign up
+            </button>
+          </div>
         </div>
       </div>
 

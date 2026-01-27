@@ -3,5 +3,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: var(--primary-background-color-light-mode);
+  background: linear-gradient(180deg, #fff8ed 0%, #f7f1e6 52%, #fffdf8 100%);
+  color: #0f0f0f;
+  font-family: var(--primary-font-family);
 }
